@@ -20,6 +20,10 @@ table, not on the face.
   - `ScrubberActivity`/`ScrubberView` day scrubber (the face redrawn in Kotlin for any date); `TableActivity`/`DayTable`
     day table; `SetupActivity` location permission + licenses; `BootReceiver` refresh on boot/update/locale/time zone change.
   - Tests: `./gradlew :astro:testDebugUnitTest` (test-only reference implementations in `src/test/.../Reference.kt`).
+- `docs/` the public website (GitHub Pages from main /docs: https://analemmic.github.io/nightwatch/): index, privacy
+  (mirror of PRIVACY.md: keep in step), license (COPYRIGHT + licenses/ embedded: regenerate when they change).
+  Screenshots in docs/img are taken with a SIMULATED location (Lisbon day, Tokyo night), never the owner's real one,
+  and the system notification dot painted out.
 
 ## Data path (face <- companion)
 WFF has no location or sun data, so the companion computes everything and publishes 7 RANGED_VALUE complications; the

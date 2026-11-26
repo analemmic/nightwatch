@@ -1,6 +1,6 @@
 # Nightwatch privacy policy
 
-_Last updated: 2026-11-23. Host at e.g. https://analemmic.com/nightwatch/privacy_
+_Last updated: 2026-11-26. Published at https://analemmic.github.io/nightwatch/privacy.html (docs/privacy.html: keep the two in step)._
 
 Nightwatch is a Wear OS watch face (com.analemmic.nightwatch.face) and its companion app, Nightwatch
 (com.analemmic.nightwatch.astro), published by Analemmic.
@@ -20,4 +20,4 @@ when you last opened it.
 **Removing data.** Uninstalling the Nightwatch companion app deletes the stored location. You can revoke location access at any
 time in the watch's Settings > Apps > Nightwatch > Permissions.
 
-**Contact.** [your contact email]
+**Contact.** Open an issue at https://github.com/analemmic/nightwatch/issues.
