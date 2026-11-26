@@ -31,7 +31,7 @@ GitHub = github.com/analemmic. `<email>` = dev@analemmic.com (ImprovMX forwardin
       2026-11-26 carry the old placeholder identity; later ones use Analemmic and the GitHub noreply address).
 - [ ] Grep the repo and both built bundles for the real name and email before every upload:
       `unzip -p astro-release.aab | strings | grep -iE "$REAL_NAME"` (likewise for the face; set REAL_NAME in your shell, never in the repo).
-- [ ] Your own watch: the new package names mean uninstalling the sideloaded apps once.
+- [x] Your own watch: old sideloaded apps uninstalled, new package names installed (2026-11-26).
 
 ## 3. Privacy policy page
 - [x] Privacy policy: https://analemmic.com/nightwatch/privacy.html (docs/privacy.html on GitHub Pages; the site is
