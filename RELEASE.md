@@ -35,7 +35,7 @@ GitHub = github.com/analemmic. `<email>` = dev@analemmic.com (ImprovMX forwardin
 
 ## 3. Privacy policy page
 - [x] Privacy policy: https://analemmic.com/nightwatch/privacy.html (docs/privacy.html on GitHub Pages; the site is
-      https://analemmic.com/nightwatch/). Needs a valid HTTPS certificate before it goes in the Play Console.
+      https://analemmic.com/nightwatch/), HTTPS live.
 
 ## 4. Play Console account
 - [ ] Sign up at play.google.com/console with the pen Google account: personal account, $25 once.
