@@ -31,4 +31,4 @@ Install both APKs on the watch, then choose Nightwatch as the watch face.
 [MIT](LICENSE) © 2026 Analemmic. Third-party components keep their own licenses: see
 [licenses/NOTICE.txt](licenses/NOTICE.txt).
 
-Not for navigation.
+Not for navigation. Questions: dev@analemmic.com.
