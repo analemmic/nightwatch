@@ -1,0 +1,17 @@
+Nightwatch
+Copyright (c) 2026 Analemmic. All rights reserved.
+
+Nightwatch includes the following third-party components:
+
+commons-suncalc (org.shredzone.commons:commons-suncalc 3.11)
+  Copyright (C) Richard "Shred" Körber
+  Licensed under the Apache License, Version 2.0 (see APACHE-2.0.txt).
+  https://shredzone.org/maven/commons-suncalc/
+
+AndroidX Wear complications data source libraries and their AndroidX / Kotlin dependencies
+  Copyright The Android Open Source Project; JetBrains s.r.o. and Kotlin contributors
+  Licensed under the Apache License, Version 2.0 (see APACHE-2.0.txt).
+
+JetBrains Mono font (watch face digits)
+  Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)
+  Licensed under the SIL Open Font License, Version 1.1 (see OFL-1.1-JetBrainsMono.txt).

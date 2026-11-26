@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <!-- Coarse is plenty for sun/moon times. Background lets the data sources refresh location on their own
+         (optional: without it they use the location saved the last time the setup screen ran). -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <!-- Refresh the face right after a reboot instead of waiting for the next update period. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_astro">
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <!-- Setup screen: explains the app, asks for location, shows licenses. Opened by the scrubber when location
+             isn't allowed yet, and from the day table's last row. -->
+        <activity android:name=".SetupActivity" android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.DeviceDefault" />
+
+        <!-- Day scrubber (owner 2026-11-24: the app's launcher entry, and the face's centre tap). Crown = date;
+             swipe right exits. Always starts on today: it finishes when stopped, unless it opened the table or setup. -->
+        <activity android:name=".ScrubberActivity" android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- The face's centre tap opens one of these (gen_face PALETTE_MODES), one per editor palette option, so the
+             scrubber learns the setting (Palettes.Mode; remembered for launcher opens). -->
+        <activity-alias android:name=".ScrubberAuto" android:targetActivity=".ScrubberActivity" android:exported="true" />
+        <activity-alias android:name=".ScrubberDay" android:targetActivity=".ScrubberActivity" android:exported="true" />
+        <activity-alias android:name=".ScrubberNight" android:targetActivity=".ScrubberActivity" android:exported="true" />
+
+        <!-- A day's table, opened by tapping the centre of the scrubber. Tap closes it. -->
+        <activity android:name=".TableActivity" android:exported="false"
+            android:label="@string/app_name" android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar" />
+
+        <!-- Reboot / app update / language / time zone change: re-request all sources now (BootReceiver.kt). -->
+        <receiver android:name=".BootReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Seven data sources, one per face slot, each a RANGED_VALUE packed by SlotCodec (see Sources.kt). -->
+        <service android:name=".SunSource" android:exported="true" android:icon="@drawable/ic_astro"
+            android:label="@string/src_sun"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter><action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" /></intent-filter>
+            <meta-data android:name="android.support.wearable.complications.SUPPORTED_TYPES" android:value="RANGED_VALUE" />
+            <meta-data android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS" android:value="900" />
+        </service>
+        <service android:name=".CivilSource" android:exported="true" android:icon="@drawable/ic_astro"
+            android:label="@string/src_civil"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter><action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" /></intent-filter>
+            <meta-data android:name="android.support.wearable.complications.SUPPORTED_TYPES" android:value="RANGED_VALUE" />
+            <meta-data android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS" android:value="900" />
+        </service>
+        <service android:name=".NauticalSource" android:exported="true" android:icon="@drawable/ic_astro"
+            android:label="@string/src_nautical"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter><action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" /></intent-filter>
+            <meta-data android:name="android.support.wearable.complications.SUPPORTED_TYPES" android:value="RANGED_VALUE" />
+            <meta-data android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS" android:value="900" />
+        </service>
+        <service android:name=".AstroSource" android:exported="true" android:icon="@drawable/ic_astro"
+            android:label="@string/src_astro"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter><action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" /></intent-filter>
+            <meta-data android:name="android.support.wearable.complications.SUPPORTED_TYPES" android:value="RANGED_VALUE" />
+            <meta-data android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS" android:value="900" />
+        </service>
+        <service android:name=".MoonSource" android:exported="true" android:icon="@drawable/ic_astro"
+            android:label="@string/src_moon"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter><action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" /></intent-filter>
+            <meta-data android:name="android.support.wearable.complications.SUPPORTED_TYPES" android:value="RANGED_VALUE" />
+            <meta-data android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS" android:value="900" />
+        </service>
+        <service android:name=".TideSource" android:exported="true" android:icon="@drawable/ic_astro"
+            android:label="@string/src_tide"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter><action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" /></intent-filter>
+            <meta-data android:name="android.support.wearable.complications.SUPPORTED_TYPES" android:value="RANGED_VALUE" />
+            <meta-data android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS" android:value="900" />
+        </service>
+        <service android:name=".ExtrasSource" android:exported="true" android:icon="@drawable/ic_astro"
+            android:label="@string/src_extras"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter><action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" /></intent-filter>
+            <meta-data android:name="android.support.wearable.complications.SUPPORTED_TYPES" android:value="RANGED_VALUE" />
+            <meta-data android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS" android:value="900" />
+        </service>
+    </application>
+</manifest>

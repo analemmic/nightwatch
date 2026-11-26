@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WatchFaceInfo>
+    <Preview value="@drawable/preview" />
+    <!-- Editable for the palette setting only (auto / day / night). Data slots are not customizable. -->
+    <Editable value="true" />
+    <MultipleInstancesAllowed value="false" />
+</WatchFaceInfo>

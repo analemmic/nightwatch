@@ -1,0 +1,32 @@
+Nightwatch
+Copyright (c) 2026 Analemmic. All rights reserved.
+
+Nightwatch includes the following third-party components:
+
+commons-suncalc (org.shredzone.commons:commons-suncalc 3.11)
+  Copyright (C) Richard "Shred" Körber
+  Licensed under the Apache License, Version 2.0 (see APACHE-2.0.txt).
+  https://shredzone.org/maven/commons-suncalc/
+
+AndroidX Wear complications data source libraries and their AndroidX / Kotlin dependencies
+  Copyright The Android Open Source Project; JetBrains s.r.o. and Kotlin contributors
+  Licensed under the Apache License, Version 2.0 (see APACHE-2.0.txt).
+
+TICON-4 tidal constants (tide predictions)
+  Hart-Davis, M., Dettmering, D., Seitz, F. (2025). TICON-4: TIdal CONstants based on
+  GESLA-4 sea-level records. SEANOE. https://doi.org/10.17882/109129
+  Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0):
+  https://creativecommons.org/licenses/by/4.0/
+  Changes: subset and repacked (lake gauges, records ending before 1990 and gauges with
+  negligible tide removed; duplicate gauges merged; values rounded; chart datums (MLLW/LAT)
+  derived from the constants). Predictions are computed
+  from these constants by Nightwatch and are not suitable for navigation.
+
+IANA time zone database (zone.tab: each time zone's principal city, the backup location)
+  Public domain. https://www.iana.org/time-zones  Changes: coordinates rounded, repacked.
+
+JetBrains Mono font (watch face digits)
+  Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)
+  Licensed under the SIL Open Font License, Version 1.1 (see OFL-1.1-JetBrainsMono.txt).
+  The Thin and ExtraLight weights are instances of the variable font (wght=100, 200) made with
+  fontTools; otherwise unmodified.

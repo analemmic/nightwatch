@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nightwatch</string>
+    <string name="src_sun">Nightwatch sun</string>
+    <string name="src_civil">Nightwatch civil twilight</string>
+    <string name="src_nautical">Nightwatch nautical twilight</string>
+    <string name="src_astro">Nightwatch astronomical twilight</string>
+    <string name="src_moon">Nightwatch moon</string>
+    <string name="src_tide">Nightwatch tides</string>
+    <string name="src_extras">Nightwatch extras</string>
+
+    <!-- Setup screen -->
+    <string name="setup_what">Supplies sunrise, sunset, twilight, moon and tide times to the Nightwatch watch face.</string>
+    <string name="setup_privacy">Your approximate location is used only on this watch to compute these times. It is never sent anywhere.</string>
+    <string name="setup_status_none">Location: not allowed. Times are for your time zone’s main city until you allow it.</string>
+    <string name="setup_status_foreground">Location: allowed while open. Times use the place saved when you last opened this screen.</string>
+    <string name="setup_status_all">Location: allowed all the time. Times follow you when you travel.</string>
+    <string name="setup_allow">Allow location</string>
+    <string name="setup_allow_always">Allow all the time (optional)</string>
+    <string name="setup_face_hint">Then choose the Nightwatch watch face. Nothing else to set up.</string>
+    <string name="setup_not_for_navigation">Not for navigation. Everything shown (sun, moon, tides) is an approximate prediction made on the watch; tides come from the nearest tide gauge, which may be far away. Use official tables for anything that matters.</string>
+    <string name="setup_licenses">Licenses</string>
+    <string name="setup_back">Back</string>
+    <string name="copyright">© 2026 Analemmic. All rights reserved.</string>
+    <string name="table_setup">Setup &amp; licenses</string>
+    <string name="table_no_location">No location yet. Tap Setup below.</string>
+</resources>
