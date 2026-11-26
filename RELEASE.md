@@ -1,8 +1,9 @@
 # Releasing to Google Play (pen name, free app)
 
-Plan (owner 2026-11-25): a personal Play developer account under a pen name; free, no ads, no purchases. Google
-verifies the legal name privately; the listing shows the developer name and contact email (confirm on Play's
-"developer information shown on Google Play" help page before signing up: rules changed recently). Two listings:
+Plan: a personal Play developer account publishing as Analemmic; free, no ads, no purchases. Play shows the
+developer name and email on the listing, and the legal name and country in the developer details (owner accepts
+this; the repo, builds, and website still carry only the pen name). Full address and phone appear only for
+monetized or trader accounts: declare non-trader (free hobby app). Two listings:
 the watch face (`face/`) and the companion (`astro/`); the face needs the companion for data, so cross-link them.
 
 Chosen (2026-11-26): `<pen>` = Analemmic, `<domain>` = analemmic.com (Network Solutions), `<prefix>` = com.analemmic,
@@ -38,9 +39,11 @@ GitHub = github.com/analemmic. `<email>` = dev@analemmic.com (ImprovMX forwardin
       https://analemmic.com/nightwatch/), HTTPS live.
 
 ## 4. Play Console account
-- [ ] Sign up at play.google.com/console with the pen Google account: personal account, $25 once.
-- [ ] Identity verification with your legal name and ID (private to Google), plus device verification with the
-      Play Console app on an Android phone.
+- [ ] Google account for the Console: "use your existing email" -> `<email>` (no Gmail needed).
+- [ ] Sign up at play.google.com/console with it: personal account, $25 once.
+- [ ] Identity verification with your legal name and ID (the legal name and country are shown on Play), plus
+      device verification with the Play Console app on an Android phone.
+- [ ] Trader status: non-trader (free, no monetization), so no public phone or address.
 - [ ] Developer name `<pen>`, contact email `<email>`, website `https://<domain>/nightwatch`.
 
 ## 5. Build the release
