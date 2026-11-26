@@ -40,7 +40,7 @@ GitHub = github.com/analemmic. `<email>` = dev@analemmic.com (ImprovMX forwardin
 
 ## 4. Play Console account
 - [x] Google account for the Console: `<email>` (2026-11-26; its own Chrome profile).
-- [ ] Sign up at play.google.com/console with it: personal account, $25 once.
+- [x] Sign up at play.google.com/console with it: personal account, $25 once (2026-11-26).
 - [ ] Identity verification with your legal name and ID (the legal name and country are shown on Play), plus
       device verification with the Play Console app on an Android phone.
 - [ ] Trader status: non-trader (free, no monetization), so no public phone or address.
