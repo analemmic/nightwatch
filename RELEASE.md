@@ -17,7 +17,7 @@ GitHub = github.com/analemmic. `<email>` = dev@analemmic.com (ImprovMX forwardin
       the privacy policy URL.
 - [x] Email on the domain (`<email>`, e.g. `nightwatch@<domain>`): forward to your inbox (registrar or Cloudflare
       email routing, free) or a mailbox; set up SPF/DKIM so replies don't land in spam.
-- [ ] A new Google account for the pen name, used for the Play Console (it can use `<email>` as its address).
+- [x] A new Google account for the pen name, used for the Play Console: `<email>`.
 - [x] Package prefix = the domain reversed: `<prefix>` = `com.analemmic`. Package names are permanent once
       published, and owning the domain keeps the prefix yours.
 - [x] Open source: MIT (2026-11-26); public repo github.com/analemmic/nightwatch with a clean single-commit history.
@@ -39,7 +39,7 @@ GitHub = github.com/analemmic. `<email>` = dev@analemmic.com (ImprovMX forwardin
       https://analemmic.com/nightwatch/), HTTPS live.
 
 ## 4. Play Console account
-- [ ] Google account for the Console: "use your existing email" -> `<email>` (no Gmail needed).
+- [x] Google account for the Console: `<email>` (2026-11-26; its own Chrome profile).
 - [ ] Sign up at play.google.com/console with it: personal account, $25 once.
 - [ ] Identity verification with your legal name and ID (the legal name and country are shown on Play), plus
       device verification with the Play Console app on an Android phone.
