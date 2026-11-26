@@ -6,7 +6,7 @@ verifies the legal name privately; the listing shows the developer name and cont
 the watch face (`face/`) and the companion (`astro/`); the face needs the companion for data, so cross-link them.
 
 Chosen (2026-11-26): `<pen>` = Analemmic, `<domain>` = analemmic.com (Network Solutions), `<prefix>` = com.analemmic,
-GitHub = github.com/analemmic. Still open: `<email>` = the public contact address on the domain.
+GitHub = github.com/analemmic. `<email>` = dev@analemmic.com (ImprovMX forwarding; replies would expose the personal address).
 
 ## 1. Decide (one-time)
 - [x] Pen name, checked for clashes on Play and the web.
@@ -14,7 +14,7 @@ GitHub = github.com/analemmic. Still open: `<email>` = the public contact addres
       on (free at most registrars; check that the registrant name and address are redacted in a public WHOIS lookup),
       paid with auto-renew so it can't lapse and be taken over. It anchors the package names, the contact email and
       the privacy policy URL.
-- [ ] Email on the domain (`<email>`, e.g. `nightwatch@<domain>`): forward to your inbox (registrar or Cloudflare
+- [x] Email on the domain (`<email>`, e.g. `nightwatch@<domain>`): forward to your inbox (registrar or Cloudflare
       email routing, free) or a mailbox; set up SPF/DKIM so replies don't land in spam.
 - [ ] A new Google account for the pen name, used for the Play Console (it can use `<email>` as its address).
 - [x] Package prefix = the domain reversed: `<prefix>` = `com.analemmic`. Package names are permanent once
@@ -25,7 +25,7 @@ GitHub = github.com/analemmic. Still open: `<email>` = the public contact addres
 - [x] `applicationId` + `namespace` in face/ and astro/ build.gradle.kts -> `<prefix>.nightwatch.face` / `.astro`;
       move the Kotlin package (now com.analemmic.nightwatch.astro) to match; ASTRO_PKG in gen_face.py; regenerate.
 - [x] Copyright: `copyright` string (setup screen), LICENSE (MIT), licenses/NOTICE.txt, res/raw/licenses.txt -> `<pen>`.
-- [ ] PRIVACY.md contact -> `<email>` (publisher name and package names done).
+- [x] PRIVACY.md contact -> `<email>`.
 - [ ] Upload key: generate with `-dname "CN=<pen>"` (the certificate's name is visible to anyone who inspects the APK).
 - [ ] If open-sourcing: rewrite git author/committer to `<pen>` / `<email>` before the first push (commits before
       2026-11-26 carry the old placeholder identity; later ones use Analemmic and the GitHub noreply address).
@@ -34,9 +34,8 @@ GitHub = github.com/analemmic. Still open: `<email>` = the public contact addres
 - [ ] Your own watch: the new package names mean uninstalling the sideloaded apps once.
 
 ## 3. Privacy policy page
-- [ ] Host PRIVACY.md at `https://<domain>/nightwatch/privacy` (a static page: GitHub Pages under a pen-name account,
-      Cloudflare Pages or the registrar's hosting, with the domain pointed at it). Play requires the link for the
-      companion (location permission). A short `https://<domain>/nightwatch` page also serves as the listing's website.
+- [x] Privacy policy: https://analemmic.com/nightwatch/privacy.html (docs/privacy.html on GitHub Pages; the site is
+      https://analemmic.com/nightwatch/). Needs a valid HTTPS certificate before it goes in the Play Console.
 
 ## 4. Play Console account
 - [ ] Sign up at play.google.com/console with the pen Google account: personal account, $25 once.
