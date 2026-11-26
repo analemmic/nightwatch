@@ -22,7 +22,7 @@ table, not on the face.
   - Tests: `./gradlew :astro:testDebugUnitTest` (test-only reference implementations in `src/test/.../Reference.kt`).
 - `docs/` the public website (GitHub Pages from main /docs: https://analemmic.github.io/nightwatch/): index, privacy
   (mirror of PRIVACY.md: keep in step), license (hand-written credits + licenses/ full texts: keep in step with licenses/NOTICE.txt).
-  Plain, short copy; the equinox/solstice line is an unadvertised easter egg (don't mention it on the site).
+  Plain, short copy, Oxford comma in all user-facing text (site, app strings, notices); the equinox/solstice line is an unadvertised easter egg (don't mention it on the site).
   Screenshots in docs/img are taken with a SIMULATED location (Lisbon day, Tokyo night), never the owner's real one,
   and the system notification dot painted out.
 
