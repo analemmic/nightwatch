@@ -1,7 +1,7 @@
 # nightwatch: Wear OS watch face (24h sun/moon/tide dial) + companion app
 
-Owner: the user, publishing as Analemmic (pen name: no real name anywhere in the repo or builds). Personal face for a Pixel Watch 3, prepared for a free Google Play release (copyright retained): see
-RELEASE.md, PRIVACY.md, COPYRIGHT, licenses/. WHY things are the way they are: DECISIONS.md (read it before changing
+Owner: the user, publishing as Analemmic (pen name: no real name anywhere in the repo or builds). Personal face for a Pixel Watch 3, prepared for a free Google Play release; open source under MIT (2026-11-26): see
+RELEASE.md, PRIVACY.md, LICENSE, licenses/. WHY things are the way they are: DECISIONS.md (read it before changing
 the design; the owner settled most of it deliberately). The design is feature-complete; new detail goes in the day
 table, not on the face.
 

@@ -19,12 +19,12 @@ GitHub = github.com/analemmic. Still open: `<email>` = the public contact addres
 - [ ] A new Google account for the pen name, used for the Play Console (it can use `<email>` as its address).
 - [x] Package prefix = the domain reversed: `<prefix>` = `com.analemmic`. Package names are permanent once
       published, and owning the domain keeps the prefix yours.
-- [ ] Open source or not (affects only whether git history and identity become public).
+- [x] Open source: MIT (2026-11-26); public repo github.com/analemmic/nightwatch with a clean single-commit history.
 
 ## 2. Remove the real name from everything that ships
 - [x] `applicationId` + `namespace` in face/ and astro/ build.gradle.kts -> `<prefix>.nightwatch.face` / `.astro`;
       move the Kotlin package (now com.analemmic.nightwatch.astro) to match; ASTRO_PKG in gen_face.py; regenerate.
-- [x] Copyright: `copyright` string (setup screen), COPYRIGHT, licenses/NOTICE.txt, res/raw/licenses.txt -> `<pen>`.
+- [x] Copyright: `copyright` string (setup screen), LICENSE (MIT), licenses/NOTICE.txt, res/raw/licenses.txt -> `<pen>`.
 - [ ] PRIVACY.md contact -> `<email>` (publisher name and package names done).
 - [ ] Upload key: generate with `-dname "CN=<pen>"` (the certificate's name is visible to anyone who inspects the APK).
 - [ ] If open-sourcing: rewrite git author/committer to `<pen>` / `<email>` before the first push (commits before
