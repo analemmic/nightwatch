@@ -2,22 +2,22 @@
 
 _Last updated: 2026-11-26. Published at https://analemmic.github.io/nightwatch/privacy.html (docs/privacy.html: keep the two in step)._
 
-Nightwatch is a Wear OS watch face (com.analemmic.nightwatch.face) and its companion app, Nightwatch
+Nightwatch is a Wear OS watch face (com.analemmic.nightwatch.face) and its companion app
 (com.analemmic.nightwatch.astro), published by Analemmic.
 
-**Location.** The companion app uses your watch's approximate (coarse) location to calculate sunrise, sunset,
-twilight, moonrise and moonset times for the watch face, and to find the nearest tide gauge (from a table built into
-the app) for high and low tide times. The calculation runs entirely on your watch. The most
-recent approximate location is stored only on the watch, so the face keeps working without a fresh fix.
+**Location.** Nightwatch uses your watch's approximate location to calculate sun, moon and tide times. This happens
+entirely on your watch. The last location is stored only on the watch.
 
-**What we don't do.** Nightwatch does not send your location or any other data off your watch. It has no
-accounts, no analytics, no advertising, and no network access. Nothing is shared with or sold to third parties.
+**Without location access.** If you don't grant location access, Nightwatch estimates your location from your
+watch's time zone (its main city), so you still see sun, moon and tide times. It does the same when your saved
+location doesn't match your current time zone.
 
-**Background location.** If you choose "Allow all the time", the app can update your location while the watch face
-is showing, so the times follow you when you travel. This is optional; without it, the app uses the location saved
-when you last opened it.
+**Background location.** Optional. If you choose "Allow all the time", the times follow you when you travel.
 
-**Removing data.** Uninstalling the Nightwatch companion app deletes the stored location. You can revoke location access at any
-time in the watch's Settings > Apps > Nightwatch > Permissions.
+**What we don't do.** No data leaves your watch. Nightwatch has no network access, accounts, analytics or ads.
+Nothing is shared or sold.
+
+**Removing data.** Uninstalling the companion app deletes the stored location. You can turn off location access
+anytime in Settings > Apps > Nightwatch > Permissions.
 
 **Contact.** Open an issue at https://github.com/analemmic/nightwatch/issues.

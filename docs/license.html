@@ -10,46 +10,24 @@
 <body>
 <main class="doc">
 <p><a class="back" href="./">← Nightwatch</a></p>
-<h1>Copyright and licenses</h1>
-<pre>Copyright (c) 2026 Analemmic. All rights reserved.
-
-Nightwatch (the watch face in face/ and the companion app in astro/) is proprietary. It is distributed free of
-charge; no license to copy, modify or redistribute the source is granted. Third-party components keep their own
-licenses: see licenses/NOTICE.txt.</pre>
-<h2>Third-party components</h2>
-<pre>Nightwatch
-Copyright (c) 2026 Analemmic. All rights reserved.
-
-Nightwatch includes the following third-party components:
-
-commons-suncalc (org.shredzone.commons:commons-suncalc 3.11)
-  Copyright (C) Richard &quot;Shred&quot; Körber
-  Licensed under the Apache License, Version 2.0 (see APACHE-2.0.txt).
-  https://shredzone.org/maven/commons-suncalc/
-
-AndroidX Wear complications data source libraries and their AndroidX / Kotlin dependencies
-  Copyright The Android Open Source Project; JetBrains s.r.o. and Kotlin contributors
-  Licensed under the Apache License, Version 2.0 (see APACHE-2.0.txt).
-
-TICON-4 tidal constants (tide predictions)
-  Hart-Davis, M., Dettmering, D., Seitz, F. (2025). TICON-4: TIdal CONstants based on
-  GESLA-4 sea-level records. SEANOE. https://doi.org/10.17882/109129
-  Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0):
-  https://creativecommons.org/licenses/by/4.0/
-  Changes: subset and repacked (lake gauges, records ending before 1990 and gauges with
-  negligible tide removed; duplicate gauges merged; values rounded; chart datums (MLLW/LAT)
-  derived from the constants). Predictions are computed
-  from these constants by Nightwatch and are not suitable for navigation.
-
-IANA time zone database (zone.tab: each time zone&#x27;s principal city, the backup location)
-  Public domain. https://www.iana.org/time-zones  Changes: coordinates rounded, repacked.
-
-JetBrains Mono font (watch face digits)
-  Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)
-  Licensed under the SIL Open Font License, Version 1.1 (see OFL-1.1-JetBrainsMono.txt).
-  The Thin and ExtraLight weights are instances of the variable font (wght=100, 200) made with
-  fontTools; otherwise unmodified.</pre>
-<details><summary>Apache License 2.0</summary><pre>                                 Apache License
+<h1>Licenses</h1>
+<p>© 2026 Analemmic. All rights reserved. Nightwatch is free to use, but it isn't open source: no license to copy,
+modify or redistribute it is granted.</p>
+<h2>Built with</h2>
+<ul class="credits">
+  <li><a href="https://shredzone.org/maven/commons-suncalc/">commons-suncalc</a> by Richard Körber.
+    <a href="#apache">Apache 2.0</a></li>
+  <li>AndroidX and Kotlin libraries by the Android Open Source Project and JetBrains.
+    <a href="#apache">Apache 2.0</a></li>
+  <li><a href="https://doi.org/10.17882/109129">TICON-4 tidal constants</a> by Hart-Davis, Dettmering and Seitz
+    (2025), subset with chart datums added. <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li>
+  <li><a href="https://www.iana.org/time-zones">IANA time zone database</a>. Public domain</li>
+  <li><a href="https://github.com/JetBrains/JetBrainsMono">JetBrains Mono</a> font, also used on this site.
+    <a href="#ofl">SIL Open Font License 1.1</a></li>
+</ul>
+<p>The app shows the same notices under Setup &gt; Licenses
+(source: <a href="https://github.com/analemmic/nightwatch/blob/main/licenses/NOTICE.txt">licenses/NOTICE.txt</a>).</p>
+<details id="apache"><summary>Apache License 2.0</summary><pre>                                 Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
 
@@ -225,7 +203,7 @@ JetBrains Mono font (watch face digits)
       of your accepting any such warranty or additional liability.
 
    END OF TERMS AND CONDITIONS</pre></details>
-<details><summary>SIL Open Font License 1.1 (JetBrains Mono)</summary><pre>Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)
+<details id="ofl"><summary>SIL Open Font License 1.1</summary><pre>Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
@@ -318,9 +296,13 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.</pre></details>
-<p>This site uses the JetBrains Mono ExtraLight font under the same license.</p>
+<script>
+  // Open a license when a link jumps to it.
+  function openHash() { const d = document.getElementById(location.hash.slice(1)); if (d && d.tagName === "DETAILS") d.open = true; }
+  addEventListener("hashchange", openHash); openHash();
+</script>
 </main>
-<footer>
+<footer class="doc">
   <a href="license.html">© 2026 Analemmic. All rights reserved.</a>
   <a href="privacy.html">Privacy</a>
 </footer>

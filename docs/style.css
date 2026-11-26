@@ -34,13 +34,13 @@ h2 { font-size: 1.6rem; margin: 3rem 0 1rem; color: var(--amber); }
 h3 { font-size: 1.1rem; margin: 0 0 0.3rem; color: var(--ink); }
 .tagline { color: var(--muted); font-size: 1.15rem; margin: 0.5rem 0 2.5rem; max-width: 38rem; }
 
-.shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.shots { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; align-items: start; }
 .shots figure { margin: 0; }
-.shots img { display: block; width: 100%; height: auto; aspect-ratio: 1; border-radius: 6px; background: #000; }
+.shots img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; border-radius: 6px; background: #000; }
 .shots figcaption { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); text-align: center; margin-top: 0.5rem; }
-@media (max-width: 640px) { .shots { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.6rem 2.2rem; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.4rem 2.2rem; }
 .features p { margin: 0; color: #c9c5c0; }
 
 .note {
@@ -66,3 +66,6 @@ pre {
 }
 details { margin: 1rem 0; }
 summary { cursor: pointer; color: var(--amber); }
+
+.credits { padding-left: 1.2rem; }
+.credits li { margin: 0.4rem 0; }
