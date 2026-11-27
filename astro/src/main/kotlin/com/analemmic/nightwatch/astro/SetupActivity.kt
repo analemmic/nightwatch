@@ -46,7 +46,7 @@ class SetupActivity : Activity() {
         column = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             gravity = Gravity.CENTER_HORIZONTAL
-            val side = dp(22); val top = dp(30)
+            val side = dp(22); val top = dp(16)
             setPadding(side, top, side, top)
         }
         scroll = ScrollView(this).apply {
@@ -111,18 +111,11 @@ class SetupActivity : Activity() {
         scroll.requestFocus() // the crown scrolls whatever has focus: keep it on the ScrollView (buttons don't take it)
         if (showingLicenses) return renderLicenses()
 
+        // Order: the disclosure (Play requires it before any location request), then the next step right under it so
+        // it's on the first screen, then the status and the description.
         text(getString(R.string.app_name), 17f, bold = true, color = RED)
-        text(getString(R.string.setup_what), 13f)
-        text(getString(R.string.setup_disclosure), 12f, color = DIM)
+        text(getString(R.string.setup_disclosure), 12f)
 
-        val status = when {
-            !hasForeground() -> getString(R.string.setup_status_none)
-            !hasBackground() -> getString(R.string.setup_status_foreground)
-            else -> getString(R.string.setup_status_all)
-        }
-        text(status, 13f, bold = true)
-
-        // The next step first, then the way out (always visible without scrolling far).
         when {
             !hasForeground() -> button(getString(R.string.setup_allow)) {
                 requestPermissions(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION), REQ_FOREGROUND)
@@ -138,6 +131,14 @@ class SetupActivity : Activity() {
             else -> button(getString(if (firstRun) R.string.setup_continue else R.string.setup_done)) { finish() }
         }
         if (hasForeground()) link(getString(R.string.setup_location_settings)) { openLocationSettings() }
+
+        val status = when {
+            !hasForeground() -> getString(R.string.setup_status_none)
+            !hasBackground() -> getString(R.string.setup_status_foreground)
+            else -> getString(R.string.setup_status_all)
+        }
+        text(status, 13f, bold = true)
+        text(getString(R.string.setup_what), 13f, color = DIM)
 
         text(getString(R.string.setup_face_hint), 12f, color = DIM)
         text(getString(R.string.setup_not_for_navigation), 12f, color = DIM)

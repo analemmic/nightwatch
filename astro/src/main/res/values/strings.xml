@@ -12,7 +12,7 @@
     <!-- Setup screen -->
     <string name="setup_what">Supplies sunrise, sunset, twilight, moon, and tide times to the Nightwatch watch face.</string>
     <!-- Prominent disclosure (Play background-location policy): shown before any permission request. -->
-    <string name="setup_disclosure">Nightwatch uses your approximate location, including in the background when the app is closed, so the face’s times follow you when you travel. Your location never leaves this watch.</string>
+    <string name="setup_disclosure">Nightwatch uses your approximate location, even when the app is closed or not in use, so the face’s times follow you when you travel. It never leaves this watch.</string>
     <string name="setup_status_none">Location: not allowed. Times are for your time zone’s main city until you allow it.</string>
     <string name="setup_status_foreground">Location: allowed only while open. Choose “Allow all the time” so the times follow you when you travel.</string>
     <string name="setup_status_all">Location: allowed all the time. Times follow you when you travel.</string>
