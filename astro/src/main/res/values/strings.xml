@@ -11,12 +11,17 @@
 
     <!-- Setup screen -->
     <string name="setup_what">Supplies sunrise, sunset, twilight, moon, and tide times to the Nightwatch watch face.</string>
-    <string name="setup_privacy">Your approximate location is used only on this watch to compute these times. It is never sent anywhere.</string>
+    <!-- Prominent disclosure (Play background-location policy): shown before any permission request. -->
+    <string name="setup_disclosure">Nightwatch uses your approximate location, including in the background when the app is closed, so the face’s times follow you when you travel. Your location never leaves this watch.</string>
     <string name="setup_status_none">Location: not allowed. Times are for your time zone’s main city until you allow it.</string>
-    <string name="setup_status_foreground">Location: allowed while open. Times use the place saved when you last opened this screen.</string>
+    <string name="setup_status_foreground">Location: allowed only while open. Choose “Allow all the time” so the times follow you when you travel.</string>
     <string name="setup_status_all">Location: allowed all the time. Times follow you when you travel.</string>
     <string name="setup_allow">Allow location</string>
-    <string name="setup_allow_always">Allow all the time (optional)</string>
+    <string name="setup_allow_always">Allow all the time</string>
+    <string name="setup_not_now">Not now</string>
+    <string name="setup_continue">Continue</string>
+    <string name="setup_done">Done</string>
+    <string name="setup_location_settings">Location settings</string>
     <string name="setup_face_hint">Then choose the Nightwatch watch face. Nothing else to set up.</string>
     <string name="setup_not_for_navigation">Not for navigation. Everything shown (sun, moon, tides) is an approximate prediction made on the watch; tides come from the nearest tide gauge, which may be far away. Use official tables for anything that matters.</string>
     <string name="setup_licenses">Licenses</string>

@@ -68,7 +68,7 @@ class ScrubberActivity : Activity() {
         // First run (owner 2026-11-24: the launcher opens the scrubber): location isn't allowed yet, so show the
         // setup screen on top; we load in onResume when the user comes back.
         if (sim == null && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            openChild(Intent(this, SetupActivity::class.java))
+            openChild(Intent(this, SetupActivity::class.java).putExtra(SetupActivity.EXTRA_FIRST_RUN, true))
         }
     }
 
