@@ -3,8 +3,9 @@
 Copy-paste source for the Play Console. Limits: short description 80 characters, full description 4,000, release
 notes 500 per language. Plain words, Oxford comma; don't mention the equinox/solstice line.
 
-Assets in this folder: `nightwatch-icon-512.png` (make_icon.py), `companion-icon-512.png`,
-`nightwatch-feature-1024x500.png` (make_feature.py). Privacy policy: https://analemmic.com/nightwatch/privacy.html
+Assets in this folder: icons `nightwatch-icon-512.png` (make_icon.py) and `companion-icon-512.png`; feature graphics
+`nightwatch-feature-1024x500.png` and `companion-feature-1024x500.png` (make_feature.py); Wear OS screenshots in
+`screenshots/` (simulated location). Play requires the words "Wear OS" in each full description. Privacy policy: https://analemmic.com/nightwatch/privacy.html
 
 ---
 
@@ -56,14 +57,14 @@ Calculates sun, moon, and tide times for the Nightwatch watch face.
 
 ### Full description
 ```
-Nightwatch Companion does the astronomy for the Nightwatch watch face. It calculates sunrise, sunset, twilight, moonrise and moonset, moon phase, and high and low tides on your watch, and sends them to the face.
+Nightwatch Companion is a Wear OS app that does the astronomy for the Nightwatch watch face. It calculates sunrise, sunset, twilight, moonrise and moonset, moon phase, and high and low tides on your watch, and provides them to the face as complications.
 
 • Works offline, worldwide, with tide predictions from about 2,800 tide gauges
 • Private: your location never leaves your watch. No network access, accounts, ads, or tracking.
 • Optional "Allow all the time" location keeps the times right when you travel. Without location access, it uses your time zone's main city.
 • Also opens the day browser and the table of the day's times from the watch face
 
-Install it together with the Nightwatch watch face.
+Install it together with the Nightwatch watch face. Needs Wear OS 6 or later.
 
 Times are calculated estimates and are not suitable for navigation.
 
