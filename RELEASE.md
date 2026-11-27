@@ -82,7 +82,7 @@ text and release notes: `play/listing.md`. Listing art and the background-locati
       target audience; data safety (location processed only on the watch, never transmitted).
 - [ ] Background location declaration (companion; required: following the wearer when they travel is the point of
       the app). Answers in the session notes (main purpose; one feature: the face's times follow you while the app
-      is closed). Video: `play/background-location-demo-2.mp4` (27 s: disclosure, runtime prompts, the face updating
+      is closed). Video: `play/background-location-demo-2.mp4` (local only, git-ignored; 27 s: disclosure, runtime prompts, the face updating
       in the background, the day browser and table), hosted on the dev@analemmic.com Drive or YouTube (unlisted).
 - [x] Licenses are shown in the app (Setup > Licenses); text in licenses/.
 
