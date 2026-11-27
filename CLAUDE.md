@@ -86,4 +86,5 @@ Angles are clock positions: local time T sits at 15 * (T - 12) degrees, noon at 
   all work lands here) and `main` (= exactly what's on Play; GitHub must match what Play reviews). Merge `dev` into
   `main` only together with a Play upload, and tag it locally (`play-internal-1`, `play-closed-2`). A pre-push hook
   allows only these two branches (`private-history` and the old tags carry the real name).
-- Verify visual changes on the watch with screenshots; never present guessed numbers as computed.
+- Verify visual changes on the watch with screenshots; never present guessed numbers as computed. A change that
+  touches both apps (face + day browser/table) needs BOTH APKs reinstalled before the screenshots.
