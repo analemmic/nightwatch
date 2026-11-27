@@ -15,12 +15,11 @@ text and release notes: `play/listing.md`. Listing art and the background-locati
 ## Status (2026-11-27)
 - Both apps exist in the Play Console with Wear OS dedicated tracks, listings, and content forms.
 - **Internal testing**: both live (version code 1), installed from Play on the owner's watch.
-- **Closed testing**: companion version 2 (1.1.0, new setup screen) uploaded as a release, not yet sent for review;
-  background-location declaration answers written, demo video recorded (Drive link gave Play a 429 warning: retry,
-  or use an unlisted YouTube link). Face: closed release still to create (promote version 1; the face is unchanged).
-- GitHub `main` = version 1 code. The version 2 work is on the local branch `next`: merge and push it when the
-  closed-test release is sent for review.
-- Next: send both closed releases for review, add the tester group to both closed tracks, recruit 12+ testers.
+- **Closed testing: in review** (sent 2026-11-27): companion version 2 (1.1.0, new setup screen, background-location
+  declaration + demo video) and face version 1 (promoted from internal). Tester group added to both closed tracks.
+- GitHub `main` = the code under review (local tag `play-closed-2`).
+- Next: when approved, recruit 12+ testers (join the group, then each app's closed-test link) and keep them for 14
+  days; then apply for production.
 
 ## Lessons (cost hours the first time)
 - **Add the Wear OS form factor with a dedicated track before any upload.** A Wear OS bundle on the phone track is
@@ -89,9 +88,9 @@ text and release notes: `play/listing.md`. Listing art and the background-locati
 ## 7. Closed test (required for new personal accounts: 12+ testers opted in for 14 days in a row)
 - [x] Internal testing first (no review): both apps, version 1, installed from Play (2026-11-27).
 - [x] Google Group for testers: nightwatch-dev-testers@googlegroups.com (anyone can join; members hidden).
-- [ ] Add the group to both apps' **closed** tracks (Wear OS only), Testers tab.
-- [ ] Companion version 2 release on the closed track (uploaded): send for review (Publishing overview).
-- [ ] Face: promote version 1 to the closed track; send for review.
+- [x] Add the group to both apps' **closed** tracks (Wear OS only), Testers tab.
+- [x] Companion version 2 release on the closed track: sent for review (2026-11-27).
+- [x] Face: version 1 promoted to the closed track; sent for review (2026-11-27).
 - [ ] Testers: join the group, then each app's closed-test link; install the companion, then the face; allow location.
 - [ ] Keep at least 12 opted in for 14 continuous days (recruit 15+ for slack); collect feedback; ship fixes to the
       closed track as needed.
