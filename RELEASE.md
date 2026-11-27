@@ -67,12 +67,12 @@ GitHub = github.com/analemmic. `<email>` = dev@analemmic.com (ImprovMX forwardin
       (adults, not for children); data safety.
 - [ ] Data safety (companion): approximate location is accessed but processed only on the watch and never
       transmitted (check Play's current definition of "collected"); no other data. Face: no data.
-- [ ] Background location declaration (companion), or drop ACCESS_BACKGROUND_LOCATION to skip it (then times
-      follow the location saved on the setup screen). Text: "Nightwatch Astro is a complication data source for the
-      Nightwatch watch face. It recalculates sunrise, twilight, moon and tide times from the watch's approximate
-      location while the watch face is displayed, so the times stay correct when the user travels. Optional:
-      without it, the last location saved in the setup screen is used." Video: setup screen -> Allow all the time
-      -> face showing the times.
+- [ ] Background location declaration (companion; required: following the wearer when they travel is the point of
+      the app). Text: "Nightwatch Companion is a complication data source for the Nightwatch watch face. It
+      recalculates sunrise, twilight, moon, and tide times from the watch's approximate location while the watch
+      face is displayed, so the times stay correct when the user travels." Video (30 s or less): setup screen with
+      its explanation -> Allow all the time -> face showing the times. The setup screen must explain background use
+      before the permission request (Play's "prominent disclosure").
 - [ ] Licenses are shown in the app (Setup > Licenses); text in licenses/.
 
 ## 7. Closed test (required for new personal accounts: 12+ testers opted in for 14 days in a row)

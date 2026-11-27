@@ -61,7 +61,7 @@ Nightwatch Companion is a Wear OS app that does the astronomy for the Nightwatch
 
 • Works offline, worldwide, with tide predictions from about 2,800 tide gauges
 • Private: your location never leaves your watch. No network access, accounts, ads, or tracking.
-• Optional "Allow all the time" location keeps the times right when you travel. Without location access, it uses your time zone's main city.
+• "Allow all the time" location keeps the times right when you travel. Without location access, it uses your time zone's main city.
 • Also opens the day browser and the table of the day's times from the watch face
 
 Install it together with the Nightwatch watch face. Needs Wear OS 6 or later.

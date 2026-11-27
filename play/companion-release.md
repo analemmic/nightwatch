@@ -20,11 +20,8 @@ the same words one level up or down.
 
 ## 0. Before you start
 - [ ] Bundle is current: ask Claude to rebuild if the code changed since the last build (needs `keystore.properties`).
-- [ ] Decide on background location (step 5's "Sensitive app permissions" asks about it). The bundle currently
-      requests "Allow all the time". Play then requires a declaration, a short demo video, and an in-app
-      explanation shown before the request. Dropping the permission avoids all of that: the companion then updates
-      your location whenever you open it (tap the face), and otherwise uses the last one. Decide **before**
-      uploading: a bundle with the permission, once uploaded, keeps asking for the declaration.
+- [ ] Background location ("Allow all the time") is essential and stays. Play requires a declaration and a short
+      demo video for it before a closed or production release (step 5).
 
 ## 1. Create the app
 1. Play Console home -> **Create app**.
@@ -37,7 +34,7 @@ the same words one level up or down.
 2. **Add form factor** -> **Wear OS**. Accept the Wear OS terms.
 3. On the Wear OS row, **Manage** -> under Releases choose the **dedicated Wear OS release track** option -> **Save**.
 4. Check: on **Testing -> Internal testing**, the selector at the top right now offers **Wear OS only**.
-
+pri
 > If you see "remove your Wear OS bundle and create a dedicated Wear OS track", the bundle went to the phone
 > track: discard that draft release, do step 2, and upload again on the Wear OS only track.
 
@@ -51,7 +48,7 @@ the same words one level up or down.
 2. App signing: accept **Google-managed (Play App Signing)** if asked.
 3. **Upload** `astro-release.aab`. It should show package `com.analemmic.nightwatch.astro`, version code 1.
 4. Release notes: the companion's block from `play/listing.md`.
-5. **Next**. Errors block; warnings (e.g. "no deobfuscation file") are fine for a test.
+5. **Next**. Errors block; warnings (e.g. "no deobfuscation file") are fine for a tespop t.
 6. **Save**, then **Start rollout to Internal testing** once step 5's required items are done.
 
 ## 5. App content (left menu: **Policy -> App content**, or the dashboard's "Set up your app" list)
@@ -62,7 +59,7 @@ the same words one level up or down.
 - [ ] **Target audience**: 18 and over (simplest; avoids the children's rules).
 - [ ] **Data safety**: does the app collect or share user data? **No**. Location is processed only on the watch and
       never transmitted, which Play doesn't count as "collected". Encryption in transit: not applicable (no network).
-- [ ] **Sensitive app permissions -> Location** (only if the bundle keeps background location): purpose text from
+- [ ] **Sensitive app permissions -> Location**: purpose text from
       RELEASE.md section 6, plus a video link (≤ 30 s: open the companion -> the explanation -> the "Allow all the
       time" prompt -> the face showing times).
 - [ ] Anything else it lists (government app, financial features, health, news): No.
