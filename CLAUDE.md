@@ -79,7 +79,8 @@ Angles are clock positions: local time T sits at 15 * (T - 12) degrees, noon at 
   zone with `adb shell service call alarm 3 s16 <Zone>`; restore it and clear the simulation afterwards.
 - Logs: `adb logcat | grep -E "NightwatchAstro|DWF"`. Screenshot: `adb exec-out screencap -p > shot.png`. Use
   KEYCODE_BACK (HOME toggles the launcher). Buzz the owner: `adb shell cmd vibrator_manager synced oneshot 300`.
-- Git: repo config commits as Analemmic with the GitHub noreply address. Push only `main`, and `main` = what's on
-  Play (GitHub must match what Play reviews). Unreleased work goes on the local branch `next`; merge it into `main`
-  and push only together with a new Play upload. Local tags mark uploaded code (`play-internal-1`).
+- Git: repo config commits as Analemmic with the GitHub noreply address. Two public branches: `dev` (the default:
+  all work lands here) and `main` (= exactly what's on Play; GitHub must match what Play reviews). Merge `dev` into
+  `main` only together with a Play upload, and tag it locally (`play-internal-1`, `play-closed-2`). A pre-push hook
+  allows only these two branches (`private-history` and the old tags carry the real name).
 - Verify visual changes on the watch with screenshots; never present guessed numbers as computed.
