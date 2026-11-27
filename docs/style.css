@@ -69,3 +69,6 @@ summary { cursor: pointer; color: var(--amber); }
 
 .credits { padding-left: 1.2rem; }
 .credits li { margin: 0.4rem 0; }
+
+.steps { padding-left: 1.3rem; color: #c9c5c0; }
+.steps li { margin: 0.45rem 0; }
