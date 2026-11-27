@@ -24,7 +24,7 @@ Nightwatch shows your whole day on one 24-hour dial, with noon at the top and mi
 • Moon: an arc shows when the moon is up, with its current phase
 • Tides: dots mark high and low tide at the nearest tide gauge
 • Day and night: switches at sunrise and sunset; night mode is all red to save your night vision. Or choose Day or Night in the face's settings.
-• Any day: tap the centre and turn the crown to see other days, then tap again for the day's times, including tide heights
+• Any day: tap the center and turn the crown to see other days, then tap again for the day's times, including tide heights
 
 Private: everything is calculated on your watch, and nothing leaves it. No accounts, ads, or tracking.
 
@@ -42,7 +42,7 @@ Open source: github.com/analemmic/nightwatch
 <en-US>
 First test release of Nightwatch, a 24-hour watch face showing the sun, moon, and tides at a glance.
 Install Nightwatch Companion too: it calculates the times on your watch. Then allow location (or it uses your time zone's main city).
-Tap the centre to browse other days. Times are estimates, not for navigation.
+Tap the center to browse other days. Times are estimates, not for navigation.
 </en-US>
 ```
 

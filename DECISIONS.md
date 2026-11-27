@@ -10,15 +10,15 @@ Goals, values, and constraints, so changes don't undo something on purpose. The 
 - **Enough is enough.** The face is at its sweet spot. New detail goes in the day table, not on the dial.
 
 ## Values
-- **Night vision first.** At night everything is red or a muted warm grey on black; nothing is white. By day the
-  face is colourful and legible, with each twilight level told apart by hue.
+- **Night vision first.** At night everything is red or a muted warm gray on black; nothing is white. By day the
+  face is colorful and legible, with each twilight level told apart by hue.
 - **Calm.** Thin type, quiet lines, stepped fills. No gradients, wave curves, starfields, or translucency (thin
-  translucent strokes dither in ambient; dimmer steps are opaque, pre-dimmed colours).
+  translucent strokes dither in ambient; dimmer steps are opaque, pre-dimmed colors).
 - **The hands stand out.** Only the hands are bright white by day; nothing else may be mistaken for them.
 - **Sleek over explanatory.** No on-face indicators for guesses, sources, or modes. The equinox/solstice line is an
   unadvertised easter egg.
 - **Private and offline.** Everything is computed on the watch; no data leaves it. No network, accounts, or analytics.
-- **Honest numbers.** Predictions are approximate and labelled "not for navigation". Fast paths are tested against
+- **Honest numbers.** Predictions are approximate and labeled "not for navigation". Fast paths are tested against
   slow reference implementations; accuracy claims are measured, never guessed.
 - **Pen name.** The project publishes as Analemmic. No real name in the repo, builds, or public history.
 
@@ -43,11 +43,11 @@ Goals, values, and constraints, so changes don't undo something on purpose. The 
 - **Ticks turn black inside the lit sky** so they don't vanish against the fills.
 - **Date order follows the user's preference**, not a locale list.
 
-## Behaviour
+## Behavior
 - **The night runs noon to noon.** After noon the face shows tonight's dusk and tomorrow's dawn; before noon, last
   night's dusk and today's dawn. Polar cases follow from each level independently: full rings, no lines, one-sided days.
 - **Tides from an on-device harmonic model** (TICON-4): offline and worldwide. Nearest gauge or nothing. Heights read
-  like local tide tables: MLLW for US gauges, LAT elsewhere; feet or metres by locale.
+  like local tide tables: MLLW for US gauges, LAT elsewhere; feet or meters by locale.
 - **Location never blocks.** A recent fix, else the saved one, else the time zone's main city, answered instantly;
   fresh fixes arrive in the background. A wrong-gauge tide from a time-zone guess is acceptable.
 - **One setting: Palette (Auto, Day, or Night).** Auto is the point; the override is for night vision at noon or
