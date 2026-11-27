@@ -71,6 +71,12 @@ text and release notes: `play/listing.md`. Listing art and the background-locati
       face/build/outputs/bundle/release/face-release.aab, astro/build/outputs/bundle/release/astro-release.aab.
       Versions so far: face 1 (1.0.0); companion 1 (1.0.0), 2 (1.1.0).
 - [x] Release builds exclude src/debug (RefreshReceiver); the Play-installed internal builds work.
+- [x] For future automatic publishing (GitHub Actions -> Play Developer API): GitHub environment `play`, usable only
+      by workflows on `main`, holds secrets `UPLOAD_KEYSTORE_BASE64` (the .jks, base64) and
+      `UPLOAD_KEYSTORE_PASSWORD` (store and key), and variable `UPLOAD_KEY_ALIAS` = `upload` (2026-11-27). Still to
+      do when we automate: a Play service account (secret `PLAY_SERVICE_ACCOUNT_JSON`), Gradle signing from those
+      env vars when keystore.properties is absent, and the workflow itself (publish to the Wear OS closed track;
+      production stays a manual promotion).
 
 ## 6. Create the two apps in the Console
 - [x] "Nightwatch" (face) and "Nightwatch Companion": free, app.
