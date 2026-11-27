@@ -28,7 +28,7 @@ import kotlin.math.sin
 /**
  * The day scrubber's face (owner 2026-11-24): the watch face redrawn in Kotlin for any date, from a [Snapshot].
  * Mirrors face/tools/gen_face.py element by element (geometry and colors come from the generated [FaceSpec]).
- * Differences from the real face, by design: no hands; the center shows the date (white by day, gray at night; stacked like HH over MM,
+ * Differences from the real face, by design: no hands; the center shows the date (white by day, red at night like the face's digits; stacked like HH over MM,
  * month/day order as the face's date) and the bottom shows the year. Interactive mode only (no ambient); day or night
  * palette by today's sky right now, whatever date is shown.
  */
@@ -312,7 +312,7 @@ class ScrubberView(context: Context) : View(context) {
         val mm = "%02d".format(date.monthValue)
         val dd = "%02d".format(date.dayOfMonth)
         val (top, bottom) = if (usOrder) mm to dd else dd to mm
-        // Owner 2026-11-24: white by day; a subtle gray at night (white was too brilliant).
+        // White by day; red at night like the face's digits (owner 2026-11-27: commit to the red night).
         centered(canvas, top, C, C - FaceSpec.TIME_DY, FaceSpec.TIME_SIZE, p.scrubDate)
         centered(canvas, bottom, C, C + FaceSpec.TIME_DY, FaceSpec.TIME_SIZE, p.scrubDate)
         curved(canvas, date.year.toString(), FaceSpec.DATE_SIZE, p.date)

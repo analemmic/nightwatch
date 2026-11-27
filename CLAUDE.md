@@ -66,10 +66,10 @@ Angles are clock positions: local time T sits at 15 * (T - 12) degrees, noon at 
 
 ## Companion screens
 - Scrubber: opens on today (setup on top if location isn't granted). Crown = days, with a stronger notch and hold on
-  today. Palette = face setting (last alias, `Palettes.mode`); Auto judged by right now, not the date shown. Center
+  today. Center date: white by day, red at night (the face's digit red). Palette = face setting (last alias, `Palettes.mode`); Auto judged by right now, not the date shown. Center
   tap -> day table; swipe right exits; finishes when stopped.
 - Day table: events in time order (emoji | HH:MM | label); tides as "Hi tide +11.7′" / "Lo tide −0.6m" above chart
-  datum (`TideDatums.kt`); feet for US-unit locales. Night: red color filter. Tap closes; last row opens setup.
+  datum (`TideDatums.kt`); feet for US-unit locales. Night: red color filter, except the easter-egg rows (amber day and night, the face's symbols). Tap closes; last row opens setup.
 
 ## Ops (Mac, watch on Wi-Fi debugging; run gradle/adb via `zsh -lc` for ANDROID_HOME/JAVA_HOME)
 - Build: `python3 face/tools/gen_face.py && ./gradlew :face:assembleDebug :astro:assembleDebug`; `adb install -r`

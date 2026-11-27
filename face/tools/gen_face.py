@@ -78,7 +78,7 @@ SEASON_SIZE = 22
 SEASON_GLYPHS = {3: "\u2648", 6: "\u264b", 9: "\u264e", 12: "\u2651"}   # Aries, Cancer, Libra, Capricorn
 SEASON_MONTH = os.environ.get("NW_FORCE_SEASON_MONTH") or "[MONTH]"     # test builds: force the sign shown
 OFF_WHITE = "#d9cfc4"    # day ambient hands and moon sprite
-NIGHT_INK = "#7d7873"    # muted warm gray: the night palette's hands, moon sprite and scrubber date
+NIGHT_INK = "#7d7873"    # muted warm gray: the night palette's hands and moon sprite
 
 
 def dim(color, level):
@@ -94,7 +94,7 @@ OFF_WHITE_AMB = dim(OFF_WHITE, AMB_LEVEL)
 NIGHT = dict(name="night", fills=["#260504", "#300705", "#3a0906", "#440a06"],
              whisk=[dim(RED, lv) for lv in (1.0, 0.85, 0.7, 0.55)],
              tick_major=RED, tick_minor=RED_DIM, noon=NIGHT_NOON, label=RED_BRIGHT, moon=RED, tide=RED,
-             digits=RED, date=NIGHT_DATE, nodata=RED_DIM, scrub_date=NIGHT_INK,   # scrub_date: the scrubber's date
+             digits=RED, date=NIGHT_DATE, nodata=RED_DIM, scrub_date=RED,   # scrub_date: the scrubber's date (red like the digits)
              hand=NIGHT_INK, moon_sprite=NIGHT_INK)
 NIGHT_AMB = dict(NIGHT, tick_minor=RED)   # ambient has no fills, so minor ticks go up to the main red
 DAY = dict(name="day", fills=["#0b0f24", "#0f1733", "#142145", "#1b2d5c"],

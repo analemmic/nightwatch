@@ -42,7 +42,6 @@ class TableActivity : Activity() {
             setPadding(dp(26), dp(34), dp(26), dp(40))
             setOnClickListener(close)
         }
-        nightVision(true) // until we know it's daytime
         val scroll = ScrollView(this).apply {
             setBackgroundColor(Color.BLACK)
             isVerticalScrollBarEnabled = false
@@ -53,13 +52,19 @@ class TableActivity : Activity() {
         setContentView(scroll)
         scroll.requestFocus() // rotating crown / bezel scrolls
         line("…", 14f)
+        nightVision(true) // until we know it's daytime
         scope.launch { load() }
     }
 
-    /** Night: everything (incl. color emoji) through the face's red. Day (owner 2026-11-24): native colors. */
+    /** Night: everything (incl. color emoji) through the face's red, except the easter-egg rows, which stay amber
+     *  like their line on the face (owner 2026-11-27). Day (owner 2026-11-24): native colors. Applied per row, so call
+     *  it after the rows are added. */
     private fun nightVision(on: Boolean) {
-        if (on) column.setLayerType(View.LAYER_TYPE_HARDWARE, Paint().apply { colorFilter = ColorMatrixColorFilter(RED_FILTER) })
-        else column.setLayerType(View.LAYER_TYPE_NONE, null)
+        val red = Paint().apply { colorFilter = ColorMatrixColorFilter(RED_FILTER) }
+        for (i in 0 until column.childCount) {
+            val v = column.getChildAt(i)
+            if (on && v.tag != EGG) v.setLayerType(View.LAYER_TYPE_HARDWARE, red) else v.setLayerType(View.LAYER_TYPE_NONE, null)
+        }
     }
 
     /** Day palette (null at night: plain white text under the red filter). */
@@ -67,6 +72,7 @@ class TableActivity : Activity() {
 
     /** Owner 2026-11-24: by day each row's text takes its element's color on the face. */
     private fun color(k: DayTable.Kind): Int {
+        if (k == DayTable.Kind.SEASON) return FaceSpec.AMBER // easter eggs: amber day and night
         val p = day ?: return Color.WHITE
         return when (k) {
             DayTable.Kind.SUN -> p.whiskers[0]
@@ -100,7 +106,6 @@ class TableActivity : Activity() {
         val isDay = if (intent.hasExtra(EXTRA_DAY)) intent.getBooleanExtra(EXTRA_DAY, false)
             else w?.let { withContext(Dispatchers.Default) { Palettes.isDay(it.snapshot(), Palettes.angle(it.now)) } } == true
         day = FaceSpec.DAY.takeIf { isDay }
-        nightVision(day == null)
         column.removeAllViews()
         val pattern = if (now.year == ZonedDateTime.now().year) "EEE d MMM" else "EEE d MMM yyyy"
         line(now.format(DateTimeFormatter.ofPattern(pattern, Locale.getDefault())), 15f, bold = true, color = day?.digits)
@@ -116,10 +121,12 @@ class TableActivity : Activity() {
             isClickable = true
             setOnClickListener { startActivity(android.content.Intent(this@TableActivity, SetupActivity::class.java)) }
         })
+        nightVision(day == null)
     }
 
     private fun row(r: DayTable.Row) {
         column.addView(LinearLayout(this).apply {
+            if (r.kind == DayTable.Kind.SEASON) tag = EGG
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
             setPadding(0, dp(3), 0, dp(3))
@@ -127,6 +134,8 @@ class TableActivity : Activity() {
             val c = color(r.kind)
             // Easter-egg rows: the face's amber symbol (signs in the bundled Noto subset, which the system would draw
             // as emoji), in the row's color; everything else is native emoji.
+            // Easter-egg rows: the face's amber symbol (signs in the bundled Noto subset, which the system would draw
+            // as emoji). A little larger, and their rows a little taller: fine for an easter egg (owner 2026-11-27).
             val icon = if (r.kind == DayTable.Kind.SEASON) text(r.emoji, 16f, color = c).apply {
                 if (r.emoji != DayTable.PI) typeface = resources.getFont(R.font.noto_sans_symbols_seasons)
                 gravity = Gravity.CENTER_HORIZONTAL
@@ -164,6 +173,8 @@ class TableActivity : Activity() {
 
         // Luminance -> RGB of the face's main red (#c41a10).
         private fun lum(k: Float) = floatArrayOf(0.299f * k, 0.587f * k, 0.114f * k, 0f, 0f)
+        /** Tag on easter-egg rows: they skip the night filter. */
+        private const val EGG = "egg"
         private val RED_FILTER = ColorMatrix(lum(196 / 255f) + lum(26 / 255f) + lum(16 / 255f) + floatArrayOf(0f, 0f, 0f, 1f, 0f))
     }
 }

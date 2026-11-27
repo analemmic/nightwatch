@@ -36,7 +36,7 @@ object FaceSpec {
         whiskers = intArrayOf(0xFFC41A10.toInt(), 0xFFA7160E.toInt(), 0xFF89120B.toInt(), 0xFF6C0E09.toInt()),
         tickMajor = 0xFFC41A10.toInt(), tickMinor = 0xFF82140C.toInt(), noon = 0xFF9D150D.toInt(),
         label = 0xFFFF2A1A.toInt(), moon = 0xFFC41A10.toInt(), tide = 0xFFC41A10.toInt(),
-        digits = 0xFFC41A10.toInt(), date = 0xFFFF5038.toInt(), scrubDate = 0xFF7D7873.toInt(),
+        digits = 0xFFC41A10.toInt(), date = 0xFFFF5038.toInt(), scrubDate = 0xFFC41A10.toInt(),
         moonSprite = 0xFF7D7873.toInt(),
     )
     val DAY = Palette(
