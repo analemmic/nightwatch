@@ -485,7 +485,7 @@
     </PartDraw>
 
     <!-- ring -->
-    <!-- Centre disc. -->
+    <!-- Center disc. -->
     <PartDraw x="0" y="0" width="450" height="450" name="disc">
       <Ellipse x="90" y="90" width="270" height="270"><Fill color="#000000" /></Ellipse>
     </PartDraw>
@@ -1203,7 +1203,7 @@
     </PartDraw>
 
     <!-- ring -->
-    <!-- Centre disc. -->
+    <!-- Center disc. -->
     <PartDraw x="0" y="0" width="450" height="450" name="disc">
       <Ellipse x="90" y="90" width="270" height="270"><Fill color="#000000" /></Ellipse>
     </PartDraw>
@@ -1629,7 +1629,7 @@
     <PartDraw x="0" y="0" width="225" height="450" name="mask_day_other" renderMode="MASK"><Transform target="alpha" value="(([CONFIGURATION.palette] == &quot;auto&quot;) &amp;&amp; ([HOUR_0_23] == 7) &amp;&amp; ([MINUTE] == 40) &amp;&amp; ([SECOND] == 37)) ? 0 : 255" /><Rectangle x="0" y="0" width="225" height="450"><Fill color="#ffffff" /></Rectangle></PartDraw>
     </Group>
 
-    <!-- Centre tap -> day scrubber (told the palette setting by which alias opens it). -->
+    <!-- Center tap -> day scrubber (told the palette setting by which alias opens it). -->
     <ListConfiguration id="palette">
       <ListOption id="auto">
         <PartDraw x="90" y="90" width="270" height="270" name="tap_auto"><Launch target="com.analemmic.nightwatch.astro/com.analemmic.nightwatch.astro.ScrubberAuto" /><Rectangle x="0" y="0" width="270" height="270"><Fill color="#00000000" /></Rectangle></PartDraw>

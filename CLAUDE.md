@@ -6,15 +6,15 @@ The face is feature-complete; new detail goes in the day table.
 
 ## Layout
 - `face/`: Watch Face Format, no code. `face/tools/gen_face.py` generates `res/raw/watchface.xml`, the sprites, and
-  the companion's `FaceSpec.kt` (geometry, palettes, codec). It is the source of truth for every size and colour.
+  the companion's `FaceSpec.kt` (geometry, palettes, codec). It is the source of truth for every size and color.
   Never edit generated files. Smoke test: `python3 face/tools/test_gen_face.py`.
 - `astro/`: companion app (`com.analemmic.nightwatch.astro`).
   - `Astro.kt` sky snapshot; `Tides.kt` harmonic tides (TICON-4: `tools/build_tides.py` -> `res/raw/tide_stations.bin`,
     then rebuild datums: `NW_BUILD_DATUMS=1 ./gradlew :astro:testDebugUnitTest --tests '*BuildTideDatums*'`, ~3 min;
     TideDatumsTest fails if stale); `Seasons.kt`.
   - `Sources.kt` 7 complication sources + snapshot cache; `SlotCodec.kt` wire format.
-  - `Sky.kt` location/time (or debug simulation), gauge choice; `TzCentres.kt` time-zone backup location
-    (`tools/build_tz.py` -> `res/raw/tz_centres.txt`).
+  - `Sky.kt` location/time (or debug simulation), gauge choice; `TzCenters.kt` time-zone backup location
+    (`tools/build_tz.py` -> `res/raw/tz_centers.txt`).
   - `ScrubberActivity`/`ScrubberView` day scrubber; `TableActivity`/`DayTable` day table; `SetupActivity` location
     disclosure + permission, Continue/Done back to its opener, Location settings, licenses; `BootReceiver` refresh on boot/update/locale/time zone; `Palettes.kt` palette setting.
   - Tests: `./gradlew :astro:testDebugUnitTest` (reference implementations in `src/test/.../Reference.kt`).
@@ -49,9 +49,9 @@ Angles are clock positions: local time T sits at 15 * (T - 12) degrees, noon at 
 - Palettes NIGHT/DAY from the Palette setting (`[CONFIGURATION.palette]`); Auto = day from sunrise to sunset (no
   data = night). Ambient = same palette pre-dimmed, never alpha. Each element is built per palette in two masked
   groups; the editor's Auto preview (frozen clock at PREVIEW_TIME) shows night left, day right.
-- Centre tap launches activity alias ScrubberAuto/Day/Night: that's how the scrubber learns the setting.
+- Center tap launches activity alias ScrubberAuto/Day/Night: that's how the scrubber learns the setting.
 - Sky fills (interactive only), sunrise/sunset lines with HHMM labels inside the disc, solar noon line broken around
-  the curved date at 12, 24 ticks, centre disc with HH over MM, moon arc with phase sprite at transit, tide dots,
+  the curved date at 12, 24 ticks, center disc with HH over MM, moon arc with phase sprite at transit, tide dots,
   24-hour hour hand and a minute hand.
 - Fonts: JetBrains Mono Thin; ExtraLight for time labels and the date; Regular for NO DATA.
 - Corner cases: each twilight level independent; the night is the noon-to-noon window; a missing moonrise/set is
@@ -60,10 +60,10 @@ Angles are clock positions: local time T sits at 15 * (T - 12) degrees, noon at 
 
 ## Companion screens
 - Scrubber: opens on today (setup on top if location isn't granted). Crown = days, with a stronger notch and hold on
-  today. Palette = face setting (last alias, `Palettes.mode`); Auto judged by right now, not the date shown. Centre
+  today. Palette = face setting (last alias, `Palettes.mode`); Auto judged by right now, not the date shown. Center
   tap -> day table; swipe right exits; finishes when stopped.
 - Day table: events in time order (emoji | HH:MM | label); tides as "Hi tide +11.7′" / "Lo tide −0.6m" above chart
-  datum (`TideDatums.kt`); feet for US-unit locales. Night: red colour filter. Tap closes; last row opens setup.
+  datum (`TideDatums.kt`); feet for US-unit locales. Night: red color filter. Tap closes; last row opens setup.
 
 ## Ops (Mac, watch on Wi-Fi debugging; run gradle/adb via `zsh -lc` for ANDROID_HOME/JAVA_HOME)
 - Build: `python3 face/tools/gen_face.py && ./gradlew :face:assembleDebug :astro:assembleDebug`; `adb install -r`

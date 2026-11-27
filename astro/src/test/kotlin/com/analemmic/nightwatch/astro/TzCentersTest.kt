@@ -8,15 +8,15 @@ import java.io.File
 import java.time.Instant
 import java.time.ZoneId
 
-class TzCentresTest {
-    private val centres = TzCentres.parse(File("src/main/res/raw/tz_centres.txt").readLines().asSequence())
+class TzCentersTest {
+    private val centers = TzCenters.parse(File("src/main/res/raw/tz_centers.txt").readLines().asSequence())
     private val now = Instant.parse("2026-11-25T12:00:00Z")
     private fun fix(lat: Double, lon: Double) = LocationSource.LatLon(lat, lon, "test")
-    private fun choose(f: LocationSource.LatLon?, zone: String) = TzCentres.choose(centres, f, ZoneId.of(zone), now)
+    private fun choose(f: LocationSource.LatLon?, zone: String) = TzCenters.choose(centers, f, ZoneId.of(zone), now)
 
     @Test fun everyZoneIsKnownToJava() {
-        assert(centres.size > 400)
-        for (c in centres) ZoneId.of(c.zone)
+        assert(centers.size > 400)
+        for (c in centers) ZoneId.of(c.zone)
     }
 
     @Test fun noFixUsesTheZoneCity() {

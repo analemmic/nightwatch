@@ -24,10 +24,10 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 /**
- * A day's events as a table (owner 2026-11-23). Opened by tapping the centre of the day scrubber, for whichever day it
- * shows ([EXTRA_AT]); a single tap anywhere closes it. Night: everything through a red colour filter (night vision).
- * Day (sunrise -> sunset right now, owner 2026-11-24): native emoji colours, and each row's text in its
- * element's colour on the face (FaceSpec.DAY).
+ * A day's events as a table (owner 2026-11-23). Opened by tapping the center of the day scrubber, for whichever day it
+ * shows ([EXTRA_AT]); a single tap anywhere closes it. Night: everything through a red color filter (night vision).
+ * Day (sunrise -> sunset right now, owner 2026-11-24): native emoji colors, and each row's text in its
+ * element's color on the face (FaceSpec.DAY).
  */
 class TableActivity : Activity() {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
@@ -56,7 +56,7 @@ class TableActivity : Activity() {
         scope.launch { load() }
     }
 
-    /** Night: everything (incl. colour emoji) through the face's red. Day (owner 2026-11-24): native colours. */
+    /** Night: everything (incl. color emoji) through the face's red. Day (owner 2026-11-24): native colors. */
     private fun nightVision(on: Boolean) {
         if (on) column.setLayerType(View.LAYER_TYPE_HARDWARE, Paint().apply { colorFilter = ColorMatrixColorFilter(RED_FILTER) })
         else column.setLayerType(View.LAYER_TYPE_NONE, null)
@@ -65,7 +65,7 @@ class TableActivity : Activity() {
     /** Day palette (null at night: plain white text under the red filter). */
     private var day: Palette? = null
 
-    /** Owner 2026-11-24: by day each row's text takes its element's colour on the face. */
+    /** Owner 2026-11-24: by day each row's text takes its element's color on the face. */
     private fun color(k: DayTable.Kind): Int {
         val p = day ?: return Color.WHITE
         return when (k) {

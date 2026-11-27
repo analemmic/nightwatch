@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Build astro/src/main/res/raw/tz_centres.txt from the IANA tz database's zone.tab (public domain).
+"""Build astro/src/main/res/raw/tz_centers.txt from the IANA tz database's zone.tab (public domain).
 
 Each zone's principal city: the backup location when the watch has no location fix, or when the saved fix is far
-from the time zone the watch is set to (TzCentres.kt). zone.tab (not zone1970.tab) so every country's own zone
+from the time zone the watch is set to (TzCenters.kt). zone.tab (not zone1970.tab) so every country's own zone
 keeps its own city (Europe/Oslo, not Berlin).
 
 Usage: python3 astro/tools/build_tz.py [/usr/share/zoneinfo/zone.tab]
@@ -27,7 +27,7 @@ def main(src):
         _, coord, zone = line.split("\t")[:3]
         lat, lon = re.match(r"([+-]\d+)([+-]\d+)$", coord).groups()
         rows.append(f"{zone} {deg(lat, 2):.2f} {deg(lon, 3):.2f}")
-    out = Path(__file__).resolve().parent.parent / "src" / "main" / "res" / "raw" / "tz_centres.txt"
+    out = Path(__file__).resolve().parent.parent / "src" / "main" / "res" / "raw" / "tz_centers.txt"
     out.write_text(f"# tzdata {version}, zone.tab\n" + "\n".join(sorted(rows)) + "\n")
     print(f"wrote {len(rows)} zones to {out}")
 

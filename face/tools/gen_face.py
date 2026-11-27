@@ -21,29 +21,29 @@ ASTRO_PKG = "com.analemmic.nightwatch.astro"
 
 # ---- geometry --------------------------------------------------------------------------------------------------------
 W = 450            # WFF canvas (scaled to the device)
-C = W / 2          # centre
+C = W / 2          # center
 R = W / 2          # face radius
-DISC = 0.60        # centre disc radius: as large as fits inside the sunrise/sunset labels
+DISC = 0.60        # center disc radius: as large as fits inside the sunrise/sunset labels
 HAND_START = DISC + 0.065   # hands begin just outside the moon ring
 FONT = "jetbrains_mono_thin"      # weight-100 instance of JetBrains Mono (OFL): every text on the face
 FONT_LABEL = "jetbrains_mono_extralight"   # weight-200 instance: the small time labels (thin read too faint)
 FONT_REGULAR = "jetbrains_mono"   # only the tiny NO DATA note (thin would vanish at that size)
 TICK_MINOR_R, TICK_MAJOR_R = 0.955, 0.927   # inner ends of the hour ticks (lines stop at TICK_MINOR_R)
 
-# Sunrise/sunset (and season) times sit inside the centre disc, on black, on their line's axis where it meets the
-# disc (owner 2026-11-25: the framed tags out in the sky were busy). 4 digits at size 18 are 43 long, centred at
+# Sunrise/sunset (and season) times sit inside the center disc, on black, on their line's axis where it meets the
+# disc (owner 2026-11-25: the framed tags out in the sky were busy). 4 digits at size 18 are 43 long, centered at
 # LABEL_R: from ~80 (clear of the big time digits for lines within ~50 deg of 06/18) to ~123 (inside the low-tide dots).
 LABEL_SIZE, LABEL_R = 18, DISC * R - 34
 LABEL_BW, LABEL_BH = 52, 24
 SEASON_CLASH_DEG = 10   # two labels this close would overlap: the sun label yields
 
-TIDE_DOT_R, TIDE_OFF = 2.6, 7          # tide dots: radius; centre this far outside (high) / inside (low) the ring
+TIDE_DOT_R, TIDE_OFF = 2.6, 7          # tide dots: radius; center this far outside (high) / inside (low) the ring
 MOON_R = 0.045 * R                     # moon marker radius
 MOON_DAYS = 29                         # one sprite per started day of the moon's age
 SYNODIC = 29.530589
-TIME_SIZE = (DISC - 0.045 - 0.065) * R / 1.02   # centre digits: fill the disc, clear of the moon marker
+TIME_SIZE = (DISC - 0.045 - 0.065) * R / 1.02   # center digits: fill the disc, clear of the moon marker
 TIME_DY = 0.45 * TIME_SIZE
-# Date (owner 2026-11-25: off the crowded bottom): curved along the rim at 12, centred at radius DATE_R. Solar noon
+# Date (owner 2026-11-25: off the crowded bottom): curved along the rim at 12, centered at radius DATE_R. Solar noon
 # breaks around it when it falls within the date's span (NOON_BREAK_DEG), pieces below and above the text.
 DATE_SIZE, DATE_R = 24, 0.82 * R
 DATE_GAP = 10
@@ -51,7 +51,7 @@ NOON_BREAK_IN = DATE_R - 0.75 * DATE_SIZE / 2 - DATE_GAP    # the lower piece en
 NOON_BREAK_OUT = DATE_R + 0.75 * DATE_SIZE / 2 + DATE_GAP   # ...the upper one starts here
 NOON_BREAK_DEG = math.degrees((5 * 0.6 * DATE_SIZE / 2 + DATE_GAP) / DATE_R)   # half the date's span, plus the gap
 
-# ---- colours ---------------------------------------------------------------------------------------------------------
+# ---- colors ---------------------------------------------------------------------------------------------------------
 RED = "#c41a10"
 RED_DIM = "#82140c"
 RED_BRIGHT = "#ff2a1a"   # night time labels: small thin digits need full intensity to read
@@ -61,11 +61,11 @@ NIGHT_DATE = "#ff5038"   # night date on the rim: full red was still faint there
 WHITE = "#ffffff"
 AMBER = "#ff9f0a"        # equinox/solstice line, both palettes
 OFF_WHITE = "#d9cfc4"    # day ambient hands and moon sprite
-NIGHT_INK = "#7d7873"    # muted warm grey: the night palette's hands, moon sprite and scrubber date
+NIGHT_INK = "#7d7873"    # muted warm gray: the night palette's hands, moon sprite and scrubber date
 
 
 def dim(color, level):
-    """Opaque colour at `level` brightness. Never alpha: thin translucent strokes dither into dots in ambient."""
+    """Opaque color at `level` brightness. Never alpha: thin translucent strokes dither into dots in ambient."""
     return "#" + "".join(f"{round(int(color[i:i + 2], 16) * level):02x}" for i in (1, 3, 5))
 
 
@@ -91,7 +91,7 @@ DAY_AMB.update(hand=OFF_WHITE_AMB, moon_sprite=OFF_WHITE_AMB)
 
 
 class Pal:
-    """The palette a builder draws with: interactive colours and their ambient twins."""
+    """The palette a builder draws with: interactive colors and their ambient twins."""
     def __init__(self, on, amb):
         self.on, self.amb, self.name = on, amb, on["name"]
 
@@ -148,7 +148,7 @@ SLOTS = [
                            "moonAge": checked(f"({HI} / {CODEC['AGE_SCALE']} <= 30) ? {HI} / {CODEC['AGE_SCALE']} : -1", -1)}),
 ]
 
-# Face editor setting (owner 2026-11-25): palette auto (sunrise..sunset), always day, or always night. The centre tap
+# Face editor setting (owner 2026-11-25): palette auto (sunrise..sunset), always day, or always night. The center tap
 # opens the scrubber through a per-option activity alias, which is how the companion learns the setting.
 PALETTE_CFG = "palette"
 PALETTE_MODES = [("auto", "Auto", "ScrubberAuto"), ("day", "Day", "ScrubberDay"), ("night", "Night", "ScrubberNight")]
@@ -204,7 +204,7 @@ def group(name, body, alpha=None, variant=None, alpha_expr=None, angle_expr=None
 
 
 def full_part_draw(name, inner, angle_expr=None, alpha=255, static_angle=None, alpha_expr=None, ambient_alpha=None):
-    """A PartDraw covering the whole face, pivoting about the centre."""
+    """A PartDraw covering the whole face, pivoting about the center."""
     attrs = f'x="0" y="0" width="{W}" height="{W}" pivotX="0.5" pivotY="0.5" name="{name}" alpha="{alpha}"'
     if static_angle is not None:
         attrs += f' angle="{f(static_angle)}"'
@@ -217,7 +217,7 @@ def full_part_draw(name, inner, angle_expr=None, alpha=255, static_angle=None, a
 
 
 def radial_line(r0, r1, color, thickness, cap="BUTT"):
-    """Vertical line from radius r0 to r1 above the centre (rotate the parent to place it)."""
+    """Vertical line from radius r0 to r1 above the center (rotate the parent to place it)."""
     return (f'<Line startX="{f(C)}" startY="{f(C - r0)}" endX="{f(C)}" endY="{f(C - r1)}">'
             f'<Stroke color="{color}" thickness="{f(thickness)}" cap="{cap}" /></Line>')
 
@@ -239,7 +239,7 @@ def text_part(name, x, y, w, h, size, color, expr, angle_expr=None, template="%s
 
 
 def mode_twins(p, name, make, key):
-    """make(color, suffix) -> XML. One copy if the colour is the same in ambient; else an interactive copy and an
+    """make(color, suffix) -> XML. One copy if the color is the same in ambient; else an interactive copy and an
     ambient-only copy (Variants on wrapper groups, so the parts keep their own alpha transforms)."""
     c, ca = p.on[key], p.amb[key]
     if c == ca:
@@ -286,7 +286,7 @@ def center_tap():
         f'<Launch target="{ASTRO_PKG}/{ASTRO_PKG}.{alias}" />'
         f'<Rectangle x="0" y="0" width="{n(2 * rd)}" height="{n(2 * rd)}"><Fill color="#00000000" /></Rectangle>'
         f'</PartDraw>\n      </ListOption>' for i, _, alias in PALETTE_MODES)
-    return (f"    <!-- Centre tap -> day scrubber (told the palette setting by which alias opens it). -->\n"
+    return (f"    <!-- Center tap -> day scrubber (told the palette setting by which alias opens it). -->\n"
             f'    <ListConfiguration id="{PALETTE_CFG}">{opts}\n    </ListConfiguration>')
 
 
@@ -342,7 +342,7 @@ def sky_fills(p):
 
 def ticks(p):
     """24 hour ticks, 00/06/12/18 major. Interactive: black inside the lit sky (nautical fill and brighter), where
-    coloured ticks vanish; ambient (no fills): all in the palette's tick colours."""
+    colored ticks vanish; ambient (no fills): all in the palette's tick colors."""
     dawn, dusk = ref("sunNauticalDawn"), ref("sunNauticalDusk")
 
     def tick(i, color_major, color_minor):
@@ -391,7 +391,7 @@ def label_clash(key):
 
 
 def whiskers(p):
-    """Sunrise and sunset lines only (the twilights show as fills): 3px from the centre (under the disc) to the edge."""
+    """Sunrise and sunset lines only (the twilights show as fills): 3px from the center (under the disc) to the edge."""
     def make(color, sfx):
         return "\n".join(full_part_draw(f"line_{key}{sfx}", radial_line(0, R, color, 3), angle_expr=ref(key),
                                         alpha_expr=shown([key])) for key in ("sunSet", "sunRise"))
@@ -431,7 +431,7 @@ def sun_labels(p):
 
 
 def hands(p):
-    """24h hour hand and ordinary minute hand: white by day (off-white in ambient), muted grey at night."""
+    """24h hour hand and ordinary minute hand: white by day (off-white in ambient), muted gray at night."""
     hour, minute = "[HOUR_0_23_MINUTE]*15 - 180", "[MINUTE]*6"
     out = []
     for suffix, color, alpha, amb in [("", p.on["hand"], 255, 0), ("_amb", p.amb["hand"], 0, 255)]:
@@ -445,7 +445,7 @@ def hands(p):
 def center_disc(p):
     """Black disc over the line roots. No rim: the moon's arc alone marks the ring."""
     rd = DISC * R
-    return ("    <!-- Centre disc. -->\n"
+    return ("    <!-- Center disc. -->\n"
             f'    <PartDraw x="0" y="0" width="{W}" height="{W}" name="disc">\n'
             f'      <Ellipse x="{f(C - rd)}" y="{f(C - rd)}" width="{f(2 * rd)}" height="{f(2 * rd)}"><Fill color="#000000" /></Ellipse>\n'
             f'    </PartDraw>')
@@ -538,7 +538,7 @@ def time_text(p):
 
 
 def curved_text(name, size, color, exprs, template, font=FONT_LABEL):
-    """Text curved along a circle of radius DATE_R, centred at 12 o'clock, reading clockwise."""
+    """Text curved along a circle of radius DATE_R, centered at 12 o'clock, reading clockwise."""
     params = "".join(f'<Parameter expression="{a(e)}" />' for e in exprs)
     return (f'      <PartText x="0" y="0" width="{W}" height="{W}" name="{name}">\n'
             f'        <TextCircular centerX="{f(C)}" centerY="{f(C)}" width="{f(2 * DATE_R)}" height="{f(2 * DATE_R)}" '
@@ -573,7 +573,7 @@ def no_data_badge(p):
 
 
 # The face editor previews each palette option at PREVIEW_TIME; at 07:40 Auto would look exactly like Day, so the
-# Auto preview splits: night on the left, day on the right (owner 2026-11-25). The editor is recognised by its frozen
+# Auto preview splits: night on the left, day on the right (owner 2026-11-25). The editor is recognized by its frozen
 # clock at PREVIEW_TIME, including an odd second (a real Auto face shows the split for that one second a day).
 PREVIEW_HMS = (7, 40, 37)   # = PreviewSky in the companion (07:40)
 
@@ -677,7 +677,7 @@ def kotlin_spec():
     return f"""package com.analemmic.nightwatch.astro
 
 // GENERATED by face/tools/gen_face.py (kotlin_spec). Do not edit by hand: change the face generator instead.
-// Canvas units: the face is {W} x {W}, centre {f(C)}, radius {f(R)}.
+// Canvas units: the face is {W} x {W}, center {f(C)}, radius {f(R)}.
 
 /** One of the face's palettes (interactive mode). fills: astronomical, nautical, civil, day; whiskers: sunrise/sunset,
  *  civil, nautical, astronomical. */
@@ -702,7 +702,7 @@ object FaceSpec {{
     const val AMBER = {col(AMBER)}
     /** Night (red, night vision) and day (sunrise -> sunset) palettes. */
 {pal("NIGHT", NIGHT)}{pal("DAY", DAY)}    const val LABEL_SIZE = {f(LABEL_SIZE)}f
-    /** Time labels sit inside the disc, centred at this radius on their line's axis. */
+    /** Time labels sit inside the disc, centered at this radius on their line's axis. */
     const val LABEL_R = {f(LABEL_R)}f
     const val SEASON_CLASH_DEG = {f(SEASON_CLASH_DEG)}f
     const val TIDE_DOT_R = {f(TIDE_DOT_R)}f
@@ -710,7 +710,7 @@ object FaceSpec {{
     const val MOON_R = {f(MOON_R)}f
     /** The face's moon phase sprites (white), one per started day of the moon's age. */
     val MOON_SPRITES = intArrayOf({sprites})
-    /** Centre time digits (the scrubber shows the date here): font size and line offset from the centre. */
+    /** Center time digits (the scrubber shows the date here): font size and line offset from the center. */
     const val TIME_SIZE = {f(TIME_SIZE)}f
     const val TIME_DY = {f(TIME_DY)}f
     /** Bottom date (the scrubber shows the year here). */

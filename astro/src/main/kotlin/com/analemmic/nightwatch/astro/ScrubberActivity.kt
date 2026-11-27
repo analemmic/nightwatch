@@ -18,8 +18,8 @@ import java.time.ZoneId
 import java.time.ZonedDateTime
 
 /**
- * Day scrubber (owner 2026-11-24): tapping the face's centre opens this, showing today. The crown moves the date;
- * the sky, moon and tides redraw for that day. Tapping the centre opens that day's table (TableActivity); swipe
+ * Day scrubber (owner 2026-11-24): tapping the face's center opens this, showing today. The crown moves the date;
+ * the sky, moon and tides redraw for that day. Tapping the center opens that day's table (TableActivity); swipe
  * right exits back to the face. Each day is computed at the current time of day, so today looks like the face.
  */
 class ScrubberActivity : Activity() {
@@ -90,7 +90,7 @@ class ScrubberActivity : Activity() {
     override fun onResume() {
         super.onResume()
         if (loading) return
-        // Without location permission the sky comes from the time zone's city (TzCentres).
+        // Without location permission the sky comes from the time zone's city (TzCenters).
         loading = true
         scope.launch {
             // No location at all (no fix, zone without a city such as UTC): only the date shows; retried on resume.

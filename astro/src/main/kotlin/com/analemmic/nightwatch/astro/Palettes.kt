@@ -19,7 +19,7 @@ object Palettes {
     fun of(s: Snapshot, t: ZonedDateTime): Palette = if (isDay(s, angle(t))) FaceSpec.DAY else FaceSpec.NIGHT
 
     /** The face editor's palette setting (owner 2026-11-25). The companion can't read the face's settings, so the
-     *  face's centre tap opens the scrubber through one activity alias per option; we remember the last one heard,
+     *  face's center tap opens the scrubber through one activity alias per option; we remember the last one heard,
      *  for opens from the launcher (stale until the next tap after a change, which is fine). */
     enum class Mode { AUTO, DAY, NIGHT }
 

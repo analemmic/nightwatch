@@ -10,13 +10,13 @@ data class Where(val lat: Double, val lon: Double, val now: ZonedDateTime, val s
 }
 
 object Sky {
-    /** The location fix, else the time zone's city (TzCentres); null only when neither is known (zone UTC, no fix).
+    /** The location fix, else the time zone's city (TzCenters); null only when neither is known (zone UTC, no fix).
      *  Never waits on GPS except on first run. */
     suspend fun where(context: Context): Where? {
         val sim = Simulation.get(context)
         if (sim != null) return Where(sim.lat, sim.lon, sim.at, TideDb.nearest(context, sim.lat, sim.lon), "SIMULATED")
         val zone = ZoneId.of(android.icu.util.TimeZone.getCanonicalID(ZoneId.systemDefault().id) ?: ZoneId.systemDefault().id)
-        val loc = TzCentres.choose(TzCentres.load(context), LocationSource.get(context), zone) ?: return null
+        val loc = TzCenters.choose(TzCenters.load(context), LocationSource.get(context), zone) ?: return null
         return Where(loc.lat, loc.lon, ZonedDateTime.now(), TideDb.nearest(context, loc.lat, loc.lon), loc.source)
     }
 }

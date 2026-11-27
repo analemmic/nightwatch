@@ -4,7 +4,7 @@
 Source: Hart-Davis, Dettmering, Seitz (2025). TICON-4: TIdal CONstants based on GESLA-4 sea-level records.
 SEANOE. https://doi.org/10.17882/109129  -- licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
 Changes made here: lake gauges dropped; gauges whose record ended before 1990 dropped (historic records, e.g. Boston
-Charlestown 1867-77, were ~30 min off modern predictions: harbour changes / old time conventions); duplicate gauges (same spot, several data providers) merged by keeping the
+Charlestown 1867-77, were ~30 min off modern predictions: harbor changes / old time conventions); duplicate gauges (same spot, several data providers) merged by keeping the
 best-quality / longest record; gauges with negligible tide (M2+S2+K1+O1 < 10 cm) dropped; only the constituents in
 CONS kept; amplitudes rounded to 1 mm, phases to 0.1 deg.
 

@@ -11,12 +11,12 @@ import java.time.temporal.ChronoUnit
  * noon, moon, tides, equinox/solstice, in time order. Clock times like weather apps (not dial angles).
  */
 object DayTable {
-    /** Which face element a row belongs to: picks its text colour in the day palette (owner 2026-11-24). */
+    /** Which face element a row belongs to: picks its text color in the day palette (owner 2026-11-24). */
     enum class Kind { ASTRO, NAUTICAL, CIVIL, SUN, NOON, MOON, TIDE, SEASON }
 
     data class Row(val emoji: String, val label: String, val time: String?, val minute: Int, val kind: Kind)
 
-    /** [feet]: tide heights in feet (US measurement system), else metres. */
+    /** [feet]: tide heights in feet (US measurement system), else meters. */
     fun rows(lat: Double, lon: Double, now: ZonedDateTime, tideStation: Tides.Station?, feet: Boolean = false): List<Row> {
         val day = now.truncatedTo(ChronoUnit.DAYS)
         val rows = mutableListOf<Row>()
@@ -82,8 +82,8 @@ object DayTable {
     }
 
     /** Signed height, one decimal: +1.2′ (feet) or −0.6m. */
-    fun tideHeight(metres: Double, feet: Boolean): String {
-        val v = Math.round((if (feet) metres / 0.3048 else metres) * 10) / 10.0
+    fun tideHeight(meters: Double, feet: Boolean): String {
+        val v = Math.round((if (feet) meters / 0.3048 else meters) * 10) / 10.0
         val s = "%.1f".format(java.util.Locale.ROOT, kotlin.math.abs(v))
         return (if (v < 0) "\u2212" else "+") + s + if (feet) "\u2032" else "m"
     }

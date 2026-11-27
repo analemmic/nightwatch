@@ -57,7 +57,7 @@ class GeneratedFace(unittest.TestCase):
             res = img.get("resource")
             self.assertTrue((RES / "drawable-nodpi" / f"{res}.png").exists(), f"missing sprite {res}.png")
 
-    def test_centre_tap_launches_an_alias_per_palette_option(self):
+    def test_center_tap_launches_an_alias_per_palette_option(self):
         manifest = (Path(g.ASTRO) / "AndroidManifest.xml").read_text()
         targets = [l.get("target") for l in self.root.iter("Launch")]
         self.assertEqual(len(targets), len(g.PALETTE_MODES))
@@ -70,7 +70,7 @@ class GeneratedFace(unittest.TestCase):
         self.assertEqual(decl, [i for i, _, _ in g.PALETTE_MODES])
         self.assertIn(g.PALETTE_CFG, self.xml)
 
-    def test_every_palette_colour_is_opaque_hex(self):
+    def test_every_palette_color_is_opaque_hex(self):
         for pal in (g.NIGHT, g.NIGHT_AMB, g.DAY, g.DAY_AMB):
             for k, v in pal.items():
                 for c in v if isinstance(v, list) else [v]:

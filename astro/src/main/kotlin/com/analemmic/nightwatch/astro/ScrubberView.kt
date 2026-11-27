@@ -26,8 +26,8 @@ import kotlin.math.sin
 
 /**
  * The day scrubber's face (owner 2026-11-24): the watch face redrawn in Kotlin for any date, from a [Snapshot].
- * Mirrors face/tools/gen_face.py element by element (geometry and colours come from the generated [FaceSpec]).
- * Differences from the real face, by design: no hands; the centre shows the date (white by day, grey at night; stacked like HH over MM,
+ * Mirrors face/tools/gen_face.py element by element (geometry and colors come from the generated [FaceSpec]).
+ * Differences from the real face, by design: no hands; the center shows the date (white by day, gray at night; stacked like HH over MM,
  * month/day order as the face's date) and the bottom shows the year. Interactive mode only (no ambient); day or night
  * palette by today's sky right now, whatever date is shown.
  */
@@ -185,7 +185,7 @@ class ScrubberView(context: Context) : View(context) {
         }
     }
 
-    /** Sunrise and sunset lines only (twilights show as fills): centre (under the disc) to the dial's edge. */
+    /** Sunrise and sunset lines only (twilights show as fills): center (under the disc) to the dial's edge. */
     private fun whiskers(canvas: Canvas, s: Snapshot) {
         for (a in listOfNotNull(sunSet(s), sunRise(s))) radial(canvas, a, 0f, RF, p.whiskers[0], 3f)
     }
@@ -221,13 +221,13 @@ class ScrubberView(context: Context) : View(context) {
         canvas.restore()
     }
 
-    /** Text along the rim at 12, centred on radius DATE_R (gen_face curved_text), in the label font. */
+    /** Text along the rim at 12, centered on radius DATE_R (gen_face curved_text), in the label font. */
     private fun curved(canvas: Canvas, s: String, size: Float, color: Int) {
         labelText.textSize = size; labelText.color = color
         val fm = labelText.fontMetrics
-        val r = FaceSpec.DATE_R + (fm.ascent + fm.descent) / 2f // glyphs grow outward from the baseline: centre them on DATE_R
+        val r = FaceSpec.DATE_R + (fm.ascent + fm.descent) / 2f // glyphs grow outward from the baseline: center them on DATE_R
         val path = android.graphics.Path().apply { addArc(RectF(C - r, C - r, C + r, C + r), 180f, 180f) }
-        canvas.drawTextOnPath(s, path, 0f, 0f, labelText) // CENTER align centres it on the path: at 12
+        canvas.drawTextOnPath(s, path, 0f, 0f, labelText) // CENTER align centers it on the path: at 12
     }
 
     private fun centered(canvas: Canvas, s: String, cx: Float, cy: Float, size: Float, color: Int, paint: Paint = text) {
@@ -274,7 +274,7 @@ class ScrubberView(context: Context) : View(context) {
         canvas.save()
         canvas.rotate(s.moonTransit, C, C)
         canvas.rotate(-s.moonTransit, C, C - rd) // keep the lit side screen-fixed
-        // White sprite tinted by the palette (white by day, the muted night grey at night; black stays black).
+        // White sprite tinted by the palette (white by day, the muted night gray at night; black stays black).
         sprite.colorFilter = LightingColorFilter(p.moonSprite and 0xFFFFFF, 0)
         canvas.drawBitmap(bmp, null, RectF(C - rm, C - rd - rm, C + rm, C - rd + rm), sprite)
         canvas.restore()
@@ -284,7 +284,7 @@ class ScrubberView(context: Context) : View(context) {
         val mm = "%02d".format(date.monthValue)
         val dd = "%02d".format(date.dayOfMonth)
         val (top, bottom) = if (usOrder) mm to dd else dd to mm
-        // Owner 2026-11-24: white by day; a subtle grey at night (white was too brilliant).
+        // Owner 2026-11-24: white by day; a subtle gray at night (white was too brilliant).
         centered(canvas, top, C, C - FaceSpec.TIME_DY, FaceSpec.TIME_SIZE, p.scrubDate)
         centered(canvas, bottom, C, C + FaceSpec.TIME_DY, FaceSpec.TIME_SIZE, p.scrubDate)
         curved(canvas, date.year.toString(), FaceSpec.DATE_SIZE, p.date)
