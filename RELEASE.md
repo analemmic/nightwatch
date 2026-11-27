@@ -9,29 +9,47 @@ the watch face (`face/`) and the companion (`astro/`); the face needs the compan
 Chosen (2026-11-26): `<pen>` = Analemmic, `<domain>` = analemmic.com (Network Solutions), `<prefix>` = com.analemmic,
 GitHub = github.com/analemmic. `<email>` = dev@analemmic.com (ImprovMX forwarding; replies would expose the personal address).
 
+Step-by-step Console guide (written for the companion, same for the face): `play/companion-release.md`. Listing
+text and release notes: `play/listing.md`. Listing art and the background-location demo video: `play/`.
+
+## Status (2026-11-27)
+- Both apps exist in the Play Console with Wear OS dedicated tracks, listings, and content forms.
+- **Internal testing**: both live (version code 1), installed from Play on the owner's watch.
+- **Closed testing**: companion version 2 (1.1.0, new setup screen) uploaded as a release, not yet sent for review;
+  background-location declaration answers written, demo video recorded (Drive link gave Play a 429 warning: retry,
+  or use an unlisted YouTube link). Face: closed release still to create (promote version 1; the face is unchanged).
+- GitHub `main` = version 1 code. The version 2 work is on the local branch `next`: merge and push it when the
+  closed-test release is sent for review.
+- Next: send both closed releases for review, add the tester group to both closed tracks, recruit 12+ testers.
+
+## Lessons (cost hours the first time)
+- **Add the Wear OS form factor with a dedicated track before any upload.** A Wear OS bundle on the phone track is
+  rejected ("create a dedicated Wear OS track"); every testing page has a Phone / Wear OS only selector.
+- **WFF version**: Play rejects features newer than the manifest's declared WFF version (verticalAlign is v5; we
+  stay on v4 for all Wear OS 6 watches). test_gen_face.py guards this.
+- **Testers are per app and per track**: a track with no tester list ticked shows Inactive and its join link says
+  "not available". Internal testing skips review (temporary app name "(unreviewed)"); closed testing is reviewed.
+- **Play-signed and sideloaded builds can't replace each other** (different signing keys): uninstall first. Each
+  reinstall of the companion can unbind the face's complications ("NO DATA"): reinstall the face too.
+
 ## 1. Decide (one-time)
 - [x] Pen name, checked for clashes on Play and the web.
-- [x] A domain you control with no real name in it (`<domain>`, e.g. `<pen>.dev`): register it with WHOIS privacy
-      on (free at most registrars; check that the registrant name and address are redacted in a public WHOIS lookup),
-      paid with auto-renew so it can't lapse and be taken over. It anchors the package names, the contact email and
-      the privacy policy URL.
-- [x] Email on the domain (`<email>`, e.g. `nightwatch@<domain>`): forward to your inbox (registrar or Cloudflare
-      email routing, free) or a mailbox; set up SPF/DKIM so replies don't land in spam.
+- [x] A domain you control with no real name in it: analemmic.com, WHOIS privacy on, auto-renew.
+- [x] Email on the domain: dev@analemmic.com, ImprovMX forwarding (SPF set).
 - [x] A new Google account for the pen name, used for the Play Console: `<email>`.
-- [x] Package prefix = the domain reversed: `<prefix>` = `com.analemmic`. Package names are permanent once
-      published, and owning the domain keeps the prefix yours.
+- [x] Package prefix = the domain reversed: `com.analemmic`. Package names are permanent once published.
 - [x] Open source: MIT (2026-11-26); public repo github.com/analemmic/nightwatch with a clean single-commit history.
 
 ## 2. Remove the real name from everything that ships
-- [x] `applicationId` + `namespace` in face/ and astro/ build.gradle.kts -> `<prefix>.nightwatch.face` / `.astro`;
-      move the Kotlin package (now com.analemmic.nightwatch.astro) to match; ASTRO_PKG in gen_face.py; regenerate.
+- [x] `applicationId` + `namespace` -> `com.analemmic.nightwatch.face` / `.astro`; Kotlin package and ASTRO_PKG moved.
 - [x] Copyright: `copyright` string (setup screen), LICENSE (MIT), licenses/NOTICE.txt, res/raw/licenses.txt -> `<pen>`.
 - [x] PRIVACY.md contact -> `<email>`.
-- [ ] Upload key: generate with `-dname "CN=<pen>"` (the certificate's name is visible to anyone who inspects the APK).
-- [ ] If open-sourcing: rewrite git author/committer to `<pen>` / `<email>` before the first push (commits before
-      2026-11-26 carry the old placeholder identity; later ones use Analemmic and the GitHub noreply address).
-- [ ] Grep the repo and both built bundles for the real name and email before every upload:
-      `unzip -p astro-release.aab | strings | grep -iE "$REAL_NAME"` (likewise for the face; set REAL_NAME in your shell, never in the repo).
+- [x] Upload key generated with `-dname "CN=Analemmic"` (2026-11-27).
+- [x] Public git history: one clean first commit as Analemmic; old history only on the local branch `private-history`.
+- [ ] Every upload: grep the bundles for the real name and email:
+      `unzip -p astro-release.aab | strings | grep -iE "$REAL_NAME"` (likewise for the face; set REAL_NAME in your
+      shell, never in the repo). Done for version 1 (both) and version 2 (companion). The tide data contains a gauge
+      named "Wolfe Tone Bridge": a place name, not a leak.
 - [x] Your own watch: old sideloaded apps uninstalled, new package names installed (2026-11-26).
 
 ## 3. Privacy policy page
@@ -41,49 +59,42 @@ GitHub = github.com/analemmic. `<email>` = dev@analemmic.com (ImprovMX forwardin
 ## 4. Play Console account
 - [x] Google account for the Console: `<email>` (2026-11-26; its own Chrome profile).
 - [x] Sign up at play.google.com/console with it: personal account, $25 once (2026-11-26).
-- [ ] Identity verification with your legal name and ID (the legal name and country are shown on Play), plus
-      device verification with the Play Console app on an Android phone.
-- [ ] Trader status: non-trader (free, no monetization), so no public phone or address.
-- [ ] Developer name `<pen>`, contact email `<email>`, website `https://<domain>/nightwatch`.
+- [x] Identity and device verification (developer account active 2026-11-27).
+- [ ] Confirm: trader status non-trader; developer page name Analemmic, email `<email>`, website
+      `https://<domain>/nightwatch`, icon and header (analemmic.github.io repo, `brand/`).
 
 ## 5. Build the release
-- [ ] Upload key (git-ignored, backed up outside the project, not in the Drive zip):
-      `keytool -genkeypair -v -keystore ../nightwatch-upload.jks -alias upload -keyalg RSA -keysize 4096 -validity 10000 -dname "CN=<pen>"`
-      then `cp keystore.properties.example keystore.properties` and fill in the passwords.
-- [ ] Each release: bump `versionCode` (+1) and `versionName` in both build.gradle.kts; `python3 face/tools/gen_face.py`;
-      `./gradlew :astro:testDebugUnitTest`; `python3 face/tools/test_gen_face.py`;
+- [x] Upload key: `../nightwatch-upload.jks` (outside the repo) with its password in `keystore.properties`
+      (git-ignored). Back both up to a password manager; never in git or the Drive zip.
+- [ ] Each release: bump `versionCode` (+1) and `versionName` in the changed app's build.gradle.kts;
+      `python3 face/tools/gen_face.py`; `./gradlew :astro:testDebugUnitTest`; `python3 face/tools/test_gen_face.py`;
       `./gradlew :face:bundleRelease :astro:bundleRelease` ->
       face/build/outputs/bundle/release/face-release.aab, astro/build/outputs/bundle/release/astro-release.aab.
-- [ ] Release builds exclude src/debug (RefreshReceiver: adb refresh and simulation); confirm the scrubber,
-      table and setup work without it.
+      Versions so far: face 1 (1.0.0); companion 1 (1.0.0), 2 (1.1.0).
+- [x] Release builds exclude src/debug (RefreshReceiver); the Play-installed internal builds work.
 
 ## 6. Create the two apps in the Console
-- [ ] Create "Nightwatch" (face) and "Nightwatch Astro" or similar (companion): free, app, not a game.
-- [ ] Enroll both in Play App Signing (Google holds the signing key; ours is only the upload key).
-- [ ] Form factors: add Wear OS for both (Wear OS gets its own review).
-- [ ] Store listing: short and full description (include "Not for navigation"), app icon 512x512, feature graphic
-      1024x500, Wear OS screenshots (square, from `adb exec-out screencap`; day, night, scrubber, table).
-- [ ] App content forms, both apps: privacy policy URL; ads: none; content rating questionnaire; target audience
-      (adults, not for children); data safety.
-- [ ] Data safety (companion): approximate location is accessed but processed only on the watch and never
-      transmitted (check Play's current definition of "collected"); no other data. Face: no data.
+- [x] "Nightwatch" (face) and "Nightwatch Companion": free, app.
+- [x] Play App Signing (Google holds the signing key; ours is only the upload key).
+- [x] Form factors: Wear OS with a dedicated track, for both.
+- [x] Store listing text (`play/listing.md`, mentions "Wear OS"), icons, feature graphics, Wear OS screenshots.
+- [x] App content forms, both apps: privacy policy URL; ads: none; app access: no restrictions; content rating;
+      target audience; data safety (location processed only on the watch, never transmitted).
 - [ ] Background location declaration (companion; required: following the wearer when they travel is the point of
-      the app). Text: "Nightwatch Companion is a complication data source for the Nightwatch watch face. It
-      recalculates sunrise, twilight, moon, and tide times from the watch's approximate location while the watch
-      face is displayed, so the times stay correct when the user travels." Video (30 s or less): setup screen with
-      its explanation -> Allow all the time -> face showing the times. The setup screen must explain background use
-      before the permission request (Play's "prominent disclosure").
-- [ ] Licenses are shown in the app (Setup > Licenses); text in licenses/.
+      the app). Answers in the session notes (main purpose; one feature: the face's times follow you while the app
+      is closed). Video: `play/background-location-demo-2.mp4` (27 s: disclosure, runtime prompts, the face updating
+      in the background, the day browser and table), hosted on the dev@analemmic.com Drive or YouTube (unlisted).
+- [x] Licenses are shown in the app (Setup > Licenses); text in licenses/.
 
 ## 7. Closed test (required for new personal accounts: 12+ testers opted in for 14 days in a row)
-- [ ] Make a Google Group for testers; add the group as the closed track's tester list (members join the group, no
-      per-person edits).
-- [ ] Upload both bundles to the closed track; send testers the opt-in link (web) and the setup notes: install the
-      face, then the companion, allow location, pick the face.
+- [x] Internal testing first (no review): both apps, version 1, installed from Play (2026-11-27).
+- [x] Google Group for testers: nightwatch-dev-testers@googlegroups.com (anyone can join; members hidden).
+- [ ] Add the group to both apps' **closed** tracks (Wear OS only), Testers tab.
+- [ ] Companion version 2 release on the closed track (uploaded): send for review (Publishing overview).
+- [ ] Face: promote version 1 to the closed track; send for review.
+- [ ] Testers: join the group, then each app's closed-test link; install the companion, then the face; allow location.
 - [ ] Keep at least 12 opted in for 14 continuous days (recruit 15+ for slack); collect feedback; ship fixes to the
       closed track as needed.
-- [ ] Optional first: an internal test track (up to 100 testers, no review) to check the Play install on your
-      own watch before the closed test starts.
 
 ## 8. Production
 - [ ] Apply for production access in the Console (a short questionnaire about the closed test).
