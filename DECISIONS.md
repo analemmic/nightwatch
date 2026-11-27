@@ -15,8 +15,10 @@ Goals, values, and constraints, so changes don't undo something on purpose. The 
 - **Calm.** Thin type, quiet lines, stepped fills. No gradients, wave curves, starfields, or translucency (thin
   translucent strokes dither in ambient; dimmer steps are opaque, pre-dimmed colors).
 - **The hands stand out.** Only the hands are bright white by day; nothing else may be mistaken for them.
-- **Sleek over explanatory.** No on-face indicators for guesses, sources, or modes. The equinox/solstice line and
-  Pi Day (03.14, only where dates read MM.DD: a pi at 02:00, a line at 01:59, no label so nothing crowds the digits) are unadvertised easter eggs.
+- **Sleek over explanatory.** No on-face indicators for guesses, sources, or modes. Easter eggs are unadvertised and
+  carry no time labels (nothing may crowd the big digits): an amber line at the moment, capped on the rim by an amber
+  symbol where a tick would be. Equinoxes and solstices get their astronomical signs; Pi Day (only where dates read
+  MM.DD) gets a pi at 01:59. The day table names them, with the same symbols.
 - **Private and offline.** Everything is computed on the watch; no data leaves it. No network, accounts, or analytics.
 - **Honest numbers.** Predictions are approximate and labeled "not for navigation". Fast paths are tested against
   slow reference implementations; accuracy claims are measured, never guessed.

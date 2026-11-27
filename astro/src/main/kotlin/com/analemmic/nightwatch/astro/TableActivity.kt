@@ -93,7 +93,7 @@ class TableActivity : Activity() {
         val w = withContext(Dispatchers.IO) { Sky.where(this@TableActivity) }
         val now = intent.getStringExtra(EXTRA_AT)?.let { runCatching { ZonedDateTime.parse(it) }.getOrNull() }
             ?: w?.now ?: ZonedDateTime.now()
-        val rows = w?.let { withContext(Dispatchers.Default) { DayTable.rows(it.lat, it.lon, now, it.station, feet = usUnits()) } }
+        val rows = w?.let { withContext(Dispatchers.Default) { DayTable.rows(it.lat, it.lon, now, it.station, feet = usUnits(), monthFirst = !DateOrder.dayFirst(this@TableActivity)) } }
         // Same day/night rule as the face, at the time shown (now, or the scrubber's day at the current time of day).
         // Palette: right now's day/night (owner 2026-11-24: about your eyes now, not the date shown). From the
         // scrubber it passes its choice; otherwise today's sky at the current time.
@@ -124,8 +124,14 @@ class TableActivity : Activity() {
             gravity = Gravity.CENTER_VERTICAL
             setPadding(0, dp(3), 0, dp(3))
             // Owner 2026-11-23: emoji, time, label.
-            addView(text(r.emoji, 14f), LinearLayout.LayoutParams(dp(24), LinearLayout.LayoutParams.WRAP_CONTENT))
             val c = color(r.kind)
+            // Easter-egg rows: the face's amber symbol (signs in the bundled Noto subset, which the system would draw
+            // as emoji), in the row's color; everything else is native emoji.
+            val icon = if (r.kind == DayTable.Kind.SEASON) text(r.emoji, 16f, color = c).apply {
+                if (r.emoji != DayTable.PI) typeface = resources.getFont(R.font.noto_sans_symbols_seasons)
+                gravity = Gravity.CENTER_HORIZONTAL
+            } else text(r.emoji, 14f)
+            addView(icon, LinearLayout.LayoutParams(dp(24), LinearLayout.LayoutParams.WRAP_CONTENT))
             addView(text(r.time ?: "", 13.5f, tabular = true, color = c), LinearLayout.LayoutParams(dp(46), LinearLayout.LayoutParams.WRAP_CONTENT))
             addView(text(r.label, 12.5f, color = c).apply { maxLines = 1; ellipsize = android.text.TextUtils.TruncateAt.END },
                 LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f))

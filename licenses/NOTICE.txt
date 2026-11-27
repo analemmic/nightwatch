@@ -52,3 +52,8 @@ JetBrains Mono font (watch face digits)
   Licensed under the SIL Open Font License, Version 1.1 (see OFL-1.1-JetBrainsMono.txt).
   The Thin and ExtraLight weights are instances of the variable font (wght=100, 200) made with
   fontTools; otherwise unmodified.
+
+Noto Sans Symbols font (four astronomical signs, subset)
+  Copyright 2022 The Noto Project Authors (https://github.com/notofonts/symbols)
+  Licensed under the SIL Open Font License, Version 1.1 (see OFL-1.1-NotoSansSymbols.txt).
+  Subset to four glyphs with fontTools; otherwise unmodified.

@@ -36,7 +36,6 @@ TICK_MINOR_R, TICK_MAJOR_R = 0.955, 0.927   # inner ends of the hour ticks (line
 # LABEL_R: from ~80 (clear of the big time digits for lines within ~50 deg of 06/18) to ~123 (inside the low-tide dots).
 LABEL_SIZE, LABEL_R = 18, DISC * R - 34
 LABEL_BW, LABEL_BH = 52, 24
-SEASON_CLASH_DEG = 10   # two labels this close would overlap: the sun label yields
 
 TIDE_DOT_R, TIDE_OFF = 2.6, 7          # tide dots: radius; center this far outside (high) / inside (low) the ring
 MOON_R = 0.045 * R                     # moon marker radius
@@ -67,8 +66,17 @@ AMBER = "#ff9f0a"        # equinox/solstice line, both palettes
 PI_DAY = "1" if os.environ.get("NW_FORCE_PI_DAY") == "1" else "(([MONTH] == 3) && ([DAY] == 14))"
 PI_TICK = 2                     # the hour whose tick the pi replaces
 PI_LINE_HOURS = 1 + 59 / 60     # 01:59
-PI_R, PI_SIZE = 0.93, 24        # pi glyph center radius (x R) and font size: on the tick's spot
-PI_LINE_R = 0.85                # the line stops short of the pi (01:59 is only 0.25 deg from 02:00)
+PI_SIZE = 24
+# Easter-egg symbols (pi, and the equinox/solstice signs) sit on the rim at the exact moment, capping their amber
+# line; the nearest hour tick is removed so the symbol stands clear (owner 2026-11-27).
+EGG_R = 0.952                   # symbol center radius (x R)
+EGG_LINE_R = 0.885              # amber line outer end (x R)
+# Equinoxes and solstices (owner 2026-11-27): the traditional astronomical sign replaces the hour tick nearest the
+# event, amber line at the exact moment, no time label. Glyphs: Noto Sans Symbols subset (OFL), by local month.
+FONT_SYMBOLS = "noto_sans_symbols_seasons"
+SEASON_SIZE = 22
+SEASON_GLYPHS = {3: "\u2648", 6: "\u264b", 9: "\u264e", 12: "\u2651"}   # Aries, Cancer, Libra, Capricorn
+SEASON_MONTH = os.environ.get("NW_FORCE_SEASON_MONTH") or "[MONTH]"     # test builds: force the sign shown
 OFF_WHITE = "#d9cfc4"    # day ambient hands and moon sprite
 NIGHT_INK = "#7d7873"    # muted warm gray: the night palette's hands, moon sprite and scrubber date
 
@@ -363,6 +371,7 @@ def ticks(p):
         t = 15 * i
         inside = f"(({dawn} < -500) || ({dusk} < -500)) ? 0 : (((({t} - {dawn}) % 360 + 360) % 360 <= {dusk} - {dawn}) ? 1 : 0)"
         pi = f"({pi_day_expr()}) ? 0 : " if i == (PI_TICK - 12) % 24 else ""   # Pi Day: the pi takes this tick's place (tick i = hour 12 + i)
+        pi += f"(({season_today()}) && ({season_tick()}) == {i}) ? 0 : "   # equinox/solstice: its sign takes the nearest tick
         for name, color, alpha in [(f"tick_{i:02d}", None, f"{pi}(({inside}) > 0.5 ? 0 : 255)"),
                                    (f"tick_{i:02d}_blk", "#000000", f"{pi}(({inside}) > 0.5 ? 255 : 0)")]:
             line = tick(i, color or p.on["tick_major"], color or p.on["tick_minor"])
@@ -389,17 +398,6 @@ def noon_line(p):
     return "    <!-- Solar noon. -->\n" + mode_twins(p, "noon", make, "noon")
 
 
-def season_d(line_key):
-    """Signed angle from a sunrise/sunset line to the season line, [-180, 180)."""
-    return wrap180(f"{ref('seasonEvent')} - {ref(line_key)}")
-
-
-def label_clash(key):
-    """True when today's equinox/solstice line is close enough to this sun line that their labels would overlap."""
-    d = season_d(key)
-    return f"(({ref('seasonEvent')} > -500) && ({ref(key)} > -500) && (abs({d}) < {SEASON_CLASH_DEG}))"
-
-
 def whiskers(p):
     """Sunrise and sunset lines only (the twilights show as fills): 3px from the center (under the disc) to the edge."""
     def make(color, sfx):
@@ -417,13 +415,31 @@ def time_label(p, name, theta, color, alpha_expr):
                      LABEL_SIZE, color, hhmm_from_angle(theta), angle_expr=flip, alpha_expr=alpha_expr, font=FONT_LABEL)
 
 
+def season_today():
+    """True on the local day of an equinox or solstice (the companion sends its dial angle)."""
+    return f"({ref('seasonEvent')} > -500)"
+
+
+def season_tick():
+    """Index (0-23, tick i at dial angle 15 i) of the hour tick nearest today's equinox/solstice."""
+    return f"(((round({ref('seasonEvent')} / 15) % 24) + 24) % 24)"
+
+
 def season_marker(p):
-    """On the local day of an equinox or solstice: an amber line at the exact moment (its label: sun_labels).
-    Interactive only."""
+    """On the local day of an equinox or solstice: an amber line at the exact moment, capped on the rim by the event's
+    astronomical sign (upright; chosen by the local month); the nearest hour tick is removed (see ticks). No time
+    label. Interactive only."""
     th = ref("seasonEvent")
-    return ("    <!-- Equinox/solstice (only on that day). -->\n"
-            + group("season", full_part_draw("line_season", radial_line(0, R, AMBER, 3), angle_expr=th,
-                                             alpha_expr=shown(["seasonEvent"])), variant=ambient(0)))
+    box = SEASON_SIZE + 6
+    signs = "\n".join(
+        text_part(f"season_sign_{m}", C - box / 2, C - EGG_R * R - box / 2, box, box, SEASON_SIZE, AMBER, [],
+                  template=g, angle_expr=f"-({th})", alpha_expr=f"({SEASON_MONTH} == {m}) ? 255 : 0",
+                  font=FONT_SYMBOLS)
+        for m, g in SEASON_GLYPHS.items())
+    return ("    <!-- Equinox/solstice (only on that day): line at the moment, sign on the nearest tick. -->\n"
+            + group("season", full_part_draw("line_season", radial_line(0, EGG_LINE_R * R, AMBER, 3), angle_expr=th)
+                    + "\n" + group("season_sign", signs, angle_expr=th, pivot=True),
+                    alpha_expr=f"({season_today()}) ? 255 : 0", variant=ambient(0)))
 
 
 def pi_day_expr():
@@ -432,13 +448,13 @@ def pi_day_expr():
 
 
 def pi_day(p):
-    """Pi Day (03.14): a tiny amber pi in place of the 02:00 tick and an amber line at 01:59, like the
-    equinox/solstice line but stopping short of the pi; no time label. Interactive only."""
-    th = 15 * (PI_TICK - 12)
-    x, y = C + PI_R * R * math.sin(math.radians(th)), C - PI_R * R * math.cos(math.radians(th))
+    """Pi Day (03.14): an amber line at 01:59 capped on the rim by a tiny amber pi, like the equinox/solstice line;
+    the 02:00 tick is removed; no time label. Interactive only."""
+    th = 15 * (PI_LINE_HOURS - 12)
+    x, y = C + EGG_R * R * math.sin(math.radians(th)), C - EGG_R * R * math.cos(math.radians(th))
     box = PI_SIZE + 4
     return ("    <!-- Pi Day (03.14): pi at 02:00, line at 01:59. -->\n"
-            + group("pi_day", full_part_draw("line_pi", radial_line(0, PI_LINE_R * R, AMBER, 3),
+            + group("pi_day", full_part_draw("line_pi", radial_line(0, EGG_LINE_R * R, AMBER, 3),
                                              static_angle=15 * (PI_LINE_HOURS - 12)) + "\n"
                     + text_part("pi", x - box / 2, y - box / 2, box, box, PI_SIZE, AMBER, [], template="\u03c0",
                                 font=FONT_LABEL),
@@ -446,15 +462,11 @@ def pi_day(p):
 
 
 def sun_labels(p):
-    """Sunrise/sunset (and equinox/solstice) times inside the disc on their lines' axes; a sun label too close to the
-    season label yields. Interactive only."""
-    th = ref("seasonEvent")
-    out = ["    <!-- Time labels. -->",
-           group("label_season", time_label(p, "t_season", th, AMBER, shown(["seasonEvent"])),
-                 angle_expr=th, pivot=True, variant=ambient(0))]
+    """Sunrise/sunset times inside the disc on their lines' axes. Interactive only."""
+    out = ["    <!-- Time labels. -->"]
     for key in ("sunSet", "sunRise"):
         th = ref(key)
-        label = time_label(p, f"t_{key}", th, p.on["label"], f"({label_clash(key)}) ? 0 : ({shown([key])})")
+        label = time_label(p, f"t_{key}", th, p.on["label"], shown([key]))
         out.append(group(f"label_{key}", label, angle_expr=th, pivot=True, variant=ambient(0)))
     return "\n".join(out)
 
@@ -738,13 +750,14 @@ object FaceSpec {{
 {pal("NIGHT", NIGHT)}{pal("DAY", DAY)}    const val LABEL_SIZE = {f(LABEL_SIZE)}f
     /** Time labels sit inside the disc, centered at this radius on their line's axis. */
     const val LABEL_R = {f(LABEL_R)}f
-    const val SEASON_CLASH_DEG = {f(SEASON_CLASH_DEG)}f
     /** Pi Day (03.14) easter egg: pi in place of the PI_TICK tick, amber line at PI_LINE_HOURS. */
     const val PI_TICK = {PI_TICK}
     const val PI_LINE_HOURS = {f(PI_LINE_HOURS)}f
-    const val PI_R = {f(PI_R)}f
     const val PI_SIZE = {f(PI_SIZE)}f
-    const val PI_LINE_R = {f(PI_LINE_R)}f
+    /** Easter-egg symbols sit at EGG_R (x R) in place of an hour tick; their amber line ends at EGG_LINE_R. */
+    const val EGG_R = {f(EGG_R)}f
+    const val EGG_LINE_R = {f(EGG_LINE_R)}f
+    const val SEASON_SIZE = {f(SEASON_SIZE)}f
     const val TIDE_DOT_R = {f(TIDE_DOT_R)}f
     const val TIDE_OFF = {f(TIDE_OFF)}f
     const val MOON_R = {f(MOON_R)}f
@@ -791,7 +804,7 @@ def main():
     kt = ASTRO / "kotlin" / "com" / "analemmic" / "nightwatch" / "astro" / "FaceSpec.kt"
     kt.write_text(kotlin_spec())
     (ASTRO / "res" / "font").mkdir(parents=True, exist_ok=True)
-    for ttf in ("jetbrains_mono.ttf", "jetbrains_mono_thin.ttf", "jetbrains_mono_extralight.ttf"):
+    for ttf in ("jetbrains_mono.ttf", "jetbrains_mono_thin.ttf", "jetbrains_mono_extralight.ttf", f"{FONT_SYMBOLS}.ttf"):
         (ASTRO / "res" / "font" / ttf).write_bytes((RES / "font" / ttf).read_bytes())
     # preview.png is NOT generated: it is a device screenshot (CLAUDE.md "Picker thumbnail").
     print(f"wrote watchface.xml, {len(sprite_colors) * MOON_DAYS} moon sprites, FaceSpec.kt")

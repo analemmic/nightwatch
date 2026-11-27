@@ -138,195 +138,195 @@
     <Group name="ticks_on" x="0" y="0" width="450" height="450">
       <Variant mode="AMBIENT" target="alpha" value="0" />
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_00" angle="0">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((0 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 0) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((0 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#c41a10" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_00_blk" angle="0">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((0 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 0) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((0 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#000000" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_01" angle="15">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((15 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 1) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((15 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_01_blk" angle="15">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((15 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 1) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((15 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_02" angle="30">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((30 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 2) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((30 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_02_blk" angle="30">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((30 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 2) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((30 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_03" angle="45">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((45 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 3) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((45 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_03_blk" angle="45">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((45 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 3) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((45 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_04" angle="60">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((60 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 4) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((60 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_04_blk" angle="60">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((60 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 4) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((60 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_05" angle="75">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((75 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 5) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((75 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_05_blk" angle="75">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((75 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 5) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((75 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_06" angle="90">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((90 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 6) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((90 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#c41a10" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_06_blk" angle="90">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((90 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 6) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((90 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#000000" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_07" angle="105">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((105 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 7) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((105 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_07_blk" angle="105">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((105 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 7) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((105 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_08" angle="120">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((120 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 8) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((120 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_08_blk" angle="120">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((120 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 8) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((120 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_09" angle="135">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((135 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 9) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((135 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_09_blk" angle="135">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((135 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 9) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((135 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_10" angle="150">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((150 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 10) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((150 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_10_blk" angle="150">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((150 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 10) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((150 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_11" angle="165">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((165 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 11) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((165 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_11_blk" angle="165">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((165 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 11) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((165 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_12" angle="180">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((180 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 12) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((180 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#c41a10" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_12_blk" angle="180">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((180 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 12) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((180 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#000000" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_13" angle="195">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((195 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 13) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((195 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_13_blk" angle="195">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((195 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 13) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((195 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_14" angle="210">
-      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : ((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 14) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_14_blk" angle="210">
-      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : ((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 14) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_15" angle="225">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((225 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 15) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((225 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_15_blk" angle="225">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((225 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 15) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((225 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_16" angle="240">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((240 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 16) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((240 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_16_blk" angle="240">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((240 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 16) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((240 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_17" angle="255">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((255 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 17) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((255 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_17_blk" angle="255">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((255 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 17) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((255 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_18" angle="270">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((270 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 18) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((270 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#c41a10" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_18_blk" angle="270">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((270 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 18) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((270 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#000000" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_19" angle="285">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((285 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 19) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((285 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_19_blk" angle="285">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((285 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 19) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((285 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_20" angle="300">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((300 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 20) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((300 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_20_blk" angle="300">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((300 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 20) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((300 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_21" angle="315">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((315 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 21) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((315 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_21_blk" angle="315">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((315 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 21) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((315 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_22" angle="330">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((330 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 22) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((330 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_22_blk" angle="330">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((330 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 22) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((330 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_23" angle="345">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((345 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 23) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((345 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_23_blk" angle="345">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((345 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 23) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((345 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     </Group>
@@ -451,14 +451,53 @@
     </PartDraw>
     </Group>
 
-    <!-- Equinox/solstice (only on that day). -->
+    <!-- Equinox/solstice (only on that day): line at the moment, sign on the nearest tick. -->
     <Group name="season" x="0" y="0" width="450" height="450">
+      <Transform target="alpha" value="(([REFERENCE.seasonEvent] &gt; -500)) ? 255 : 0" />
       <Variant mode="AMBIENT" target="alpha" value="0" />
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="line_season" alpha="255">
       <Transform target="angle" value="[REFERENCE.seasonEvent]" />
-      <Transform target="alpha" value="(([REFERENCE.seasonEvent] &lt; -500)) ? 0 : 255" />
-      <Line startX="225" startY="225" endX="225" endY="0"><Stroke color="#ff9f0a" thickness="3" cap="BUTT" /></Line>
+      <Line startX="225" startY="225" endX="225" endY="25.875"><Stroke color="#ff9f0a" thickness="3" cap="BUTT" /></Line>
     </PartDraw>
+    <Group name="season_sign" x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5">
+      <Transform target="angle" value="[REFERENCE.seasonEvent]" />
+      <PartText x="211" y="-3" width="28" height="28" pivotX="0.5" pivotY="0.5" name="season_sign_3">
+        <Transform target="angle" value="-([REFERENCE.seasonEvent])" />
+        <Transform target="alpha" value="([MONTH] == 3) ? 255 : 0" />
+        <Text align="CENTER">
+          <Font family="noto_sans_symbols_seasons" size="22" color="#ff9f0a">
+            <Template>♈</Template>
+          </Font>
+        </Text>
+      </PartText>
+      <PartText x="211" y="-3" width="28" height="28" pivotX="0.5" pivotY="0.5" name="season_sign_6">
+        <Transform target="angle" value="-([REFERENCE.seasonEvent])" />
+        <Transform target="alpha" value="([MONTH] == 6) ? 255 : 0" />
+        <Text align="CENTER">
+          <Font family="noto_sans_symbols_seasons" size="22" color="#ff9f0a">
+            <Template>♋</Template>
+          </Font>
+        </Text>
+      </PartText>
+      <PartText x="211" y="-3" width="28" height="28" pivotX="0.5" pivotY="0.5" name="season_sign_9">
+        <Transform target="angle" value="-([REFERENCE.seasonEvent])" />
+        <Transform target="alpha" value="([MONTH] == 9) ? 255 : 0" />
+        <Text align="CENTER">
+          <Font family="noto_sans_symbols_seasons" size="22" color="#ff9f0a">
+            <Template>♎</Template>
+          </Font>
+        </Text>
+      </PartText>
+      <PartText x="211" y="-3" width="28" height="28" pivotX="0.5" pivotY="0.5" name="season_sign_12">
+        <Transform target="angle" value="-([REFERENCE.seasonEvent])" />
+        <Transform target="alpha" value="([MONTH] == 12) ? 255 : 0" />
+        <Text align="CENTER">
+          <Font family="noto_sans_symbols_seasons" size="22" color="#ff9f0a">
+            <Template>♑</Template>
+          </Font>
+        </Text>
+      </PartText>
+    </Group>
     </Group>
 
     <!-- Pi Day (03.14): pi at 02:00, line at 01:59. -->
@@ -466,9 +505,9 @@
       <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 255 : 0" />
       <Variant mode="AMBIENT" target="alpha" value="0" />
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="line_pi" alpha="255" angle="-150.25">
-      <Line startX="225" startY="225" endX="225" endY="33.75"><Stroke color="#ff9f0a" thickness="3" cap="BUTT" /></Line>
+      <Line startX="225" startY="225" endX="225" endY="25.875"><Stroke color="#ff9f0a" thickness="3" cap="BUTT" /></Line>
     </PartDraw>
-      <PartText x="106" y="392" width="28" height="28" pivotX="0.5" pivotY="0.5" name="pi">
+      <PartText x="105" y="397" width="28" height="28" pivotX="0.5" pivotY="0.5" name="pi">
         <Text align="CENTER">
           <Font family="jetbrains_mono_extralight" size="24" color="#ff9f0a">
             <Template>π</Template>
@@ -569,25 +608,12 @@
     </Group>
 
     <!-- Time labels. -->
-    <Group name="label_season" x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5">
-      <Transform target="angle" value="[REFERENCE.seasonEvent]" />
-      <Variant mode="AMBIENT" target="alpha" value="0" />
-      <PartText x="199" y="112" width="52" height="24" pivotX="0.5" pivotY="0.5" name="t_season">
-        <Transform target="angle" value="(sin(rad([REFERENCE.seasonEvent])) &lt; 0) ? 90 : -90" />
-        <Transform target="alpha" value="(([REFERENCE.seasonEvent] &lt; -500)) ? 0 : 255" />
-        <Text align="CENTER">
-          <Font family="jetbrains_mono_extralight" size="18" color="#ff9f0a">
-            <Template>%s<Parameter expression="numberFormat(&quot;0000&quot;, floor((((round(([REFERENCE.seasonEvent]/15+12)*60) % 1440) + 1440) % 1440)/60)*100 + (((round(([REFERENCE.seasonEvent]/15+12)*60) % 1440) + 1440) % 1440) % 60)" /></Template>
-          </Font>
-        </Text>
-      </PartText>
-    </Group>
     <Group name="label_sunSet" x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5">
       <Transform target="angle" value="[REFERENCE.sunSet]" />
       <Variant mode="AMBIENT" target="alpha" value="0" />
       <PartText x="199" y="112" width="52" height="24" pivotX="0.5" pivotY="0.5" name="t_sunSet">
         <Transform target="angle" value="(sin(rad([REFERENCE.sunSet])) &lt; 0) ? 90 : -90" />
-        <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500) &amp;&amp; ([REFERENCE.sunSet] &gt; -500) &amp;&amp; (abs(((([REFERENCE.seasonEvent] - [REFERENCE.sunSet]) % 360) + 540) % 360 - 180) &lt; 10))) ? 0 : ((([REFERENCE.sunSet] &lt; -500) || ([REFERENCE.sunSetReal] &lt; 0.5)) ? 0 : 255)" />
+        <Transform target="alpha" value="(([REFERENCE.sunSet] &lt; -500) || ([REFERENCE.sunSetReal] &lt; 0.5)) ? 0 : 255" />
         <Text align="CENTER">
           <Font family="jetbrains_mono_extralight" size="18" color="#ff2a1a">
             <Template>%s<Parameter expression="numberFormat(&quot;0000&quot;, floor((((round(([REFERENCE.sunSet]/15+12)*60) % 1440) + 1440) % 1440)/60)*100 + (((round(([REFERENCE.sunSet]/15+12)*60) % 1440) + 1440) % 1440) % 60)" /></Template>
@@ -600,7 +626,7 @@
       <Variant mode="AMBIENT" target="alpha" value="0" />
       <PartText x="199" y="112" width="52" height="24" pivotX="0.5" pivotY="0.5" name="t_sunRise">
         <Transform target="angle" value="(sin(rad([REFERENCE.sunRise])) &lt; 0) ? 90 : -90" />
-        <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500) &amp;&amp; ([REFERENCE.sunRise] &gt; -500) &amp;&amp; (abs(((([REFERENCE.seasonEvent] - [REFERENCE.sunRise]) % 360) + 540) % 360 - 180) &lt; 10))) ? 0 : ((([REFERENCE.sunRise] &lt; -500) || ([REFERENCE.sunRiseReal] &lt; 0.5)) ? 0 : 255)" />
+        <Transform target="alpha" value="(([REFERENCE.sunRise] &lt; -500) || ([REFERENCE.sunRiseReal] &lt; 0.5)) ? 0 : 255" />
         <Text align="CENTER">
           <Font family="jetbrains_mono_extralight" size="18" color="#ff2a1a">
             <Template>%s<Parameter expression="numberFormat(&quot;0000&quot;, floor((((round(([REFERENCE.sunRise]/15+12)*60) % 1440) + 1440) % 1440)/60)*100 + (((round(([REFERENCE.sunRise]/15+12)*60) % 1440) + 1440) % 1440) % 60)" /></Template>
@@ -851,195 +877,195 @@
     <Group name="ticks_on" x="0" y="0" width="450" height="450">
       <Variant mode="AMBIENT" target="alpha" value="0" />
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_00" angle="0">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((0 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 0) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((0 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#e6e9ee" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_00_blk" angle="0">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((0 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 0) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((0 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#000000" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_01" angle="15">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((15 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 1) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((15 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_01_blk" angle="15">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((15 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 1) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((15 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_02" angle="30">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((30 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 2) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((30 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_02_blk" angle="30">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((30 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 2) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((30 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_03" angle="45">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((45 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 3) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((45 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_03_blk" angle="45">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((45 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 3) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((45 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_04" angle="60">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((60 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 4) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((60 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_04_blk" angle="60">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((60 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 4) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((60 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_05" angle="75">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((75 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 5) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((75 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_05_blk" angle="75">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((75 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 5) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((75 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_06" angle="90">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((90 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 6) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((90 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#e6e9ee" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_06_blk" angle="90">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((90 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 6) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((90 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#000000" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_07" angle="105">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((105 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 7) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((105 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_07_blk" angle="105">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((105 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 7) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((105 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_08" angle="120">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((120 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 8) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((120 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_08_blk" angle="120">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((120 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 8) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((120 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_09" angle="135">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((135 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 9) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((135 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_09_blk" angle="135">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((135 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 9) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((135 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_10" angle="150">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((150 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 10) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((150 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_10_blk" angle="150">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((150 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 10) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((150 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_11" angle="165">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((165 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 11) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((165 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_11_blk" angle="165">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((165 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 11) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((165 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_12" angle="180">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((180 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 12) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((180 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#e6e9ee" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_12_blk" angle="180">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((180 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 12) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((180 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#000000" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_13" angle="195">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((195 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 13) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((195 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_13_blk" angle="195">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((195 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 13) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((195 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_14" angle="210">
-      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : ((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 14) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_14_blk" angle="210">
-      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : ((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 14) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_15" angle="225">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((225 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 15) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((225 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_15_blk" angle="225">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((225 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 15) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((225 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_16" angle="240">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((240 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 16) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((240 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_16_blk" angle="240">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((240 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 16) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((240 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_17" angle="255">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((255 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 17) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((255 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_17_blk" angle="255">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((255 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 17) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((255 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_18" angle="270">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((270 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 18) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((270 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#e6e9ee" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_18_blk" angle="270">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((270 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 18) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((270 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="16.425"><Stroke color="#000000" thickness="7" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_19" angle="285">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((285 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 19) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((285 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_19_blk" angle="285">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((285 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 19) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((285 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_20" angle="300">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((300 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 20) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((300 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_20_blk" angle="300">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((300 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 20) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((300 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_21" angle="315">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((315 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 21) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((315 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_21_blk" angle="315">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((315 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 21) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((315 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_22" angle="330">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((330 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 22) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((330 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_22_blk" angle="330">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((330 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 22) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((330 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_23" angle="345">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((345 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 23) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((345 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_23_blk" angle="345">
-      <Transform target="alpha" value="(((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((345 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500)) &amp;&amp; ((((round([REFERENCE.seasonEvent] / 15) % 24) + 24) % 24)) == 23) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((345 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     </Group>
@@ -1185,14 +1211,53 @@
     </PartDraw>
     </Group>
 
-    <!-- Equinox/solstice (only on that day). -->
+    <!-- Equinox/solstice (only on that day): line at the moment, sign on the nearest tick. -->
     <Group name="season" x="0" y="0" width="450" height="450">
+      <Transform target="alpha" value="(([REFERENCE.seasonEvent] &gt; -500)) ? 255 : 0" />
       <Variant mode="AMBIENT" target="alpha" value="0" />
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="line_season" alpha="255">
       <Transform target="angle" value="[REFERENCE.seasonEvent]" />
-      <Transform target="alpha" value="(([REFERENCE.seasonEvent] &lt; -500)) ? 0 : 255" />
-      <Line startX="225" startY="225" endX="225" endY="0"><Stroke color="#ff9f0a" thickness="3" cap="BUTT" /></Line>
+      <Line startX="225" startY="225" endX="225" endY="25.875"><Stroke color="#ff9f0a" thickness="3" cap="BUTT" /></Line>
     </PartDraw>
+    <Group name="season_sign" x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5">
+      <Transform target="angle" value="[REFERENCE.seasonEvent]" />
+      <PartText x="211" y="-3" width="28" height="28" pivotX="0.5" pivotY="0.5" name="season_sign_3">
+        <Transform target="angle" value="-([REFERENCE.seasonEvent])" />
+        <Transform target="alpha" value="([MONTH] == 3) ? 255 : 0" />
+        <Text align="CENTER">
+          <Font family="noto_sans_symbols_seasons" size="22" color="#ff9f0a">
+            <Template>♈</Template>
+          </Font>
+        </Text>
+      </PartText>
+      <PartText x="211" y="-3" width="28" height="28" pivotX="0.5" pivotY="0.5" name="season_sign_6">
+        <Transform target="angle" value="-([REFERENCE.seasonEvent])" />
+        <Transform target="alpha" value="([MONTH] == 6) ? 255 : 0" />
+        <Text align="CENTER">
+          <Font family="noto_sans_symbols_seasons" size="22" color="#ff9f0a">
+            <Template>♋</Template>
+          </Font>
+        </Text>
+      </PartText>
+      <PartText x="211" y="-3" width="28" height="28" pivotX="0.5" pivotY="0.5" name="season_sign_9">
+        <Transform target="angle" value="-([REFERENCE.seasonEvent])" />
+        <Transform target="alpha" value="([MONTH] == 9) ? 255 : 0" />
+        <Text align="CENTER">
+          <Font family="noto_sans_symbols_seasons" size="22" color="#ff9f0a">
+            <Template>♎</Template>
+          </Font>
+        </Text>
+      </PartText>
+      <PartText x="211" y="-3" width="28" height="28" pivotX="0.5" pivotY="0.5" name="season_sign_12">
+        <Transform target="angle" value="-([REFERENCE.seasonEvent])" />
+        <Transform target="alpha" value="([MONTH] == 12) ? 255 : 0" />
+        <Text align="CENTER">
+          <Font family="noto_sans_symbols_seasons" size="22" color="#ff9f0a">
+            <Template>♑</Template>
+          </Font>
+        </Text>
+      </PartText>
+    </Group>
     </Group>
 
     <!-- Pi Day (03.14): pi at 02:00, line at 01:59. -->
@@ -1200,9 +1265,9 @@
       <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 255 : 0" />
       <Variant mode="AMBIENT" target="alpha" value="0" />
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="line_pi" alpha="255" angle="-150.25">
-      <Line startX="225" startY="225" endX="225" endY="33.75"><Stroke color="#ff9f0a" thickness="3" cap="BUTT" /></Line>
+      <Line startX="225" startY="225" endX="225" endY="25.875"><Stroke color="#ff9f0a" thickness="3" cap="BUTT" /></Line>
     </PartDraw>
-      <PartText x="106" y="392" width="28" height="28" pivotX="0.5" pivotY="0.5" name="pi">
+      <PartText x="105" y="397" width="28" height="28" pivotX="0.5" pivotY="0.5" name="pi">
         <Text align="CENTER">
           <Font family="jetbrains_mono_extralight" size="24" color="#ff9f0a">
             <Template>π</Template>
@@ -1373,25 +1438,12 @@
     </Group>
 
     <!-- Time labels. -->
-    <Group name="label_season" x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5">
-      <Transform target="angle" value="[REFERENCE.seasonEvent]" />
-      <Variant mode="AMBIENT" target="alpha" value="0" />
-      <PartText x="199" y="112" width="52" height="24" pivotX="0.5" pivotY="0.5" name="t_season">
-        <Transform target="angle" value="(sin(rad([REFERENCE.seasonEvent])) &lt; 0) ? 90 : -90" />
-        <Transform target="alpha" value="(([REFERENCE.seasonEvent] &lt; -500)) ? 0 : 255" />
-        <Text align="CENTER">
-          <Font family="jetbrains_mono_extralight" size="18" color="#ff9f0a">
-            <Template>%s<Parameter expression="numberFormat(&quot;0000&quot;, floor((((round(([REFERENCE.seasonEvent]/15+12)*60) % 1440) + 1440) % 1440)/60)*100 + (((round(([REFERENCE.seasonEvent]/15+12)*60) % 1440) + 1440) % 1440) % 60)" /></Template>
-          </Font>
-        </Text>
-      </PartText>
-    </Group>
     <Group name="label_sunSet" x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5">
       <Transform target="angle" value="[REFERENCE.sunSet]" />
       <Variant mode="AMBIENT" target="alpha" value="0" />
       <PartText x="199" y="112" width="52" height="24" pivotX="0.5" pivotY="0.5" name="t_sunSet">
         <Transform target="angle" value="(sin(rad([REFERENCE.sunSet])) &lt; 0) ? 90 : -90" />
-        <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500) &amp;&amp; ([REFERENCE.sunSet] &gt; -500) &amp;&amp; (abs(((([REFERENCE.seasonEvent] - [REFERENCE.sunSet]) % 360) + 540) % 360 - 180) &lt; 10))) ? 0 : ((([REFERENCE.sunSet] &lt; -500) || ([REFERENCE.sunSetReal] &lt; 0.5)) ? 0 : 255)" />
+        <Transform target="alpha" value="(([REFERENCE.sunSet] &lt; -500) || ([REFERENCE.sunSetReal] &lt; 0.5)) ? 0 : 255" />
         <Text align="CENTER">
           <Font family="jetbrains_mono_extralight" size="18" color="#ffc24a">
             <Template>%s<Parameter expression="numberFormat(&quot;0000&quot;, floor((((round(([REFERENCE.sunSet]/15+12)*60) % 1440) + 1440) % 1440)/60)*100 + (((round(([REFERENCE.sunSet]/15+12)*60) % 1440) + 1440) % 1440) % 60)" /></Template>
@@ -1404,7 +1456,7 @@
       <Variant mode="AMBIENT" target="alpha" value="0" />
       <PartText x="199" y="112" width="52" height="24" pivotX="0.5" pivotY="0.5" name="t_sunRise">
         <Transform target="angle" value="(sin(rad([REFERENCE.sunRise])) &lt; 0) ? 90 : -90" />
-        <Transform target="alpha" value="((([REFERENCE.seasonEvent] &gt; -500) &amp;&amp; ([REFERENCE.sunRise] &gt; -500) &amp;&amp; (abs(((([REFERENCE.seasonEvent] - [REFERENCE.sunRise]) % 360) + 540) % 360 - 180) &lt; 10))) ? 0 : ((([REFERENCE.sunRise] &lt; -500) || ([REFERENCE.sunRiseReal] &lt; 0.5)) ? 0 : 255)" />
+        <Transform target="alpha" value="(([REFERENCE.sunRise] &lt; -500) || ([REFERENCE.sunRiseReal] &lt; 0.5)) ? 0 : 255" />
         <Text align="CENTER">
           <Font family="jetbrains_mono_extralight" size="18" color="#ffc24a">
             <Template>%s<Parameter expression="numberFormat(&quot;0000&quot;, floor((((round(([REFERENCE.sunRise]/15+12)*60) % 1440) + 1440) % 1440)/60)*100 + (((round(([REFERENCE.sunRise]/15+12)*60) % 1440) + 1440) % 1440) % 60)" /></Template>

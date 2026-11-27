@@ -50,13 +50,14 @@ object FaceSpec {
     const val LABEL_SIZE = 18f
     /** Time labels sit inside the disc, centered at this radius on their line's axis. */
     const val LABEL_R = 101f
-    const val SEASON_CLASH_DEG = 10f
     /** Pi Day (03.14) easter egg: pi in place of the PI_TICK tick, amber line at PI_LINE_HOURS. */
     const val PI_TICK = 2
     const val PI_LINE_HOURS = 1.983f
-    const val PI_R = 0.93f
     const val PI_SIZE = 24f
-    const val PI_LINE_R = 0.85f
+    /** Easter-egg symbols sit at EGG_R (x R) in place of an hour tick; their amber line ends at EGG_LINE_R. */
+    const val EGG_R = 0.952f
+    const val EGG_LINE_R = 0.885f
+    const val SEASON_SIZE = 22f
     const val TIDE_DOT_R = 2.6f
     const val TIDE_OFF = 7f
     const val MOON_R = 10.125f

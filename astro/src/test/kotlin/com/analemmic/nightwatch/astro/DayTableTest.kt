@@ -45,6 +45,15 @@ class DayTableTest {
     @Test
     fun solsticeRowOnTheDay() {
         val rows = DayTable.rows(40.71, -74.01, ZonedDateTime.parse("2026-12-21T12:00:00-05:00[America/New_York]"), null)
-        assertTrue(rows.any { it.label == "December solstice" && it.emoji == "❄️" })
+        assertTrue(rows.any { it.label == "December solstice" && it.emoji == "\u2651" && it.time == "15:50" })
+    }
+
+    @Test
+    fun piDayRowOnlyWhereDatesReadMonthFirst() {
+        val piDay = ZonedDateTime.parse("2027-03-14T12:00:00-04:00[America/New_York]")
+        val us = DayTable.rows(40.71, -74.01, piDay, null, monthFirst = true)
+        assertTrue(us.any { it.label == "Pi Day" && it.emoji == DayTable.PI && it.time == "01:59" })
+        assertTrue(DayTable.rows(40.71, -74.01, piDay, null, monthFirst = false).none { it.label == "Pi Day" })
+        assertTrue(DayTable.rows(40.71, -74.01, piDay.plusDays(1), null).none { it.label == "Pi Day" })
     }
 }

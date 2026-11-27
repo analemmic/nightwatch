@@ -10,7 +10,15 @@ import kotlin.math.cos
  * 24-term periodic correction). Accurate to about a minute, which is all the face shows (HHMM).
  */
 object Seasons {
-    enum class Event { MARCH_EQUINOX, JUNE_SOLSTICE, SEPTEMBER_EQUINOX, DECEMBER_SOLSTICE }
+    /** [sign]: the event's traditional astronomical sign (owner 2026-11-27; gen_face SEASON_GLYPHS). Draw it with the
+     *  bundled Noto Sans Symbols subset (R.font.noto_sans_symbols_seasons): the system would show these as emoji. */
+    enum class Event(val month: Int, val sign: String) {
+        MARCH_EQUINOX(3, "\u2648"), JUNE_SOLSTICE(6, "\u264b"), SEPTEMBER_EQUINOX(9, "\u264e"), DECEMBER_SOLSTICE(12, "\u2651");
+
+        companion object {
+            fun inMonth(month: Int) = entries.firstOrNull { it.month == month }
+        }
+    }
 
     // Mean JDE0 polynomial coefficients in Y = (year - 2000) / 1000, per event.
     private val MEAN = mapOf(

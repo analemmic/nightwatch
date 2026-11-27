@@ -53,13 +53,16 @@ Angles are clock positions: local time T sits at 15 * (T - 12) degrees, noon at 
 - Sky fills (interactive only), sunrise/sunset lines with HHMM labels inside the disc, solar noon line broken around
   the curved date at 12, 24 ticks, center disc with HH over MM, moon arc with phase sprite at transit, tide dots,
   24-hour hour hand and a minute hand.
-- Fonts: JetBrains Mono Thin; ExtraLight for time labels and the date; Regular for NO DATA.
-- Easter eggs (never mention them publicly): equinox/solstice amber line + label; Pi Day (03.14, local date, MM.DD date order only) a tiny
-  amber pi replaces the 02:00 tick and an amber line marks 01:59 (no label). Preview Pi Day: `NW_FORCE_PI_DAY=1 python3
-  face/tools/gen_face.py` (test builds only; regenerate without it before committing).
+- Fonts: JetBrains Mono Thin; ExtraLight for time labels and the date; Regular for NO DATA; a 4-glyph Noto Sans
+  Symbols subset (`noto_sans_symbols_seasons.ttf`, OFL) for the equinox/solstice signs (the system shows them as emoji).
+- Easter eggs (never mention them publicly), interactive only, no time labels: an amber line at the exact moment,
+  capped on the rim (EGG_R) by an amber symbol; the nearest hour tick is removed. Equinoxes/solstices: the astronomical
+  sign by local month (♈ ♋ ♎ ♑). Pi Day (03.14, MM.DD date order only): π, line at 01:59, 02:00 tick removed. The day
+  browser and the day table show the same symbols. Previews: `NW_FORCE_PI_DAY=1` or `NW_FORCE_SEASON_MONTH=3|6|9|12`
+  before `python3 face/tools/gen_face.py` (test builds only; regenerate without them before committing), plus a
+  simulated event day for the season line.
 - Corner cases: each twilight level independent; the night is the noon-to-noon window; a missing moonrise/set is
-  taken from up to 3 days back. Known, accepted: at high latitudes or on an equinox/solstice near noon or midnight, a
-  label can touch the big digits.
+  taken from up to 3 days back. Known, accepted: at high latitudes a sunrise/sunset label can touch the big digits.
 
 ## Companion screens
 - Scrubber: opens on today (setup on top if location isn't granted). Crown = days, with a stronger notch and hold on

@@ -16,8 +16,13 @@ object DayTable {
 
     data class Row(val emoji: String, val label: String, val time: String?, val minute: Int, val kind: Kind)
 
-    /** [feet]: tide heights in feet (US measurement system), else meters. */
-    fun rows(lat: Double, lon: Double, now: ZonedDateTime, tideStation: Tides.Station?, feet: Boolean = false): List<Row> {
+    /** Pi Day row: March 14 at 01:59 (24-hour, like the face), only where dates read MM.DD. */
+    const val PI = "\u03c0"
+
+    /** [feet]: tide heights in feet (US measurement system), else meters. [monthFirst]: the user's date order is MM.DD
+     *  (Pi Day only exists there). */
+    fun rows(lat: Double, lon: Double, now: ZonedDateTime, tideStation: Tides.Station?, feet: Boolean = false,
+             monthFirst: Boolean = true): List<Row> {
         val day = now.truncatedTo(ChronoUnit.DAYS)
         val rows = mutableListOf<Row>()
         val notes = mutableListOf<Row>()
@@ -64,7 +69,9 @@ object DayTable {
             }
         }
 
-        Seasons.today(now)?.let { (event, t) -> add(seasonEmoji(event, lat), seasonName(event), t, Kind.SEASON) }
+        // The easter eggs, with the same amber symbols as the face (owner 2026-11-27).
+        Seasons.today(now)?.let { (event, t) -> add(event.sign, seasonName(event), t, Kind.SEASON) }
+        if (monthFirst && day.monthValue == 3 && day.dayOfMonth == 14) add(PI, "Pi Day", day.withHour(1).withMinute(59), Kind.SEASON)
 
         rows.sortBy { it.minute }
         // Owner 2026-11-23: the phase goes on the moon's transit ("lunar noon", highest in the sky); on the ~1 day a
@@ -107,14 +114,4 @@ object DayTable {
         Seasons.Event.DECEMBER_SOLSTICE -> "December solstice"
     }
 
-    /** Season that begins at the event, for the hemisphere you're in. */
-    private fun seasonEmoji(e: Seasons.Event, lat: Double): String {
-        val north = lat >= 0
-        return when (e) {
-            Seasons.Event.MARCH_EQUINOX -> if (north) "🌱" else "🍂"
-            Seasons.Event.JUNE_SOLSTICE -> if (north) "☀️" else "❄️"
-            Seasons.Event.SEPTEMBER_EQUINOX -> if (north) "🍂" else "🌱"
-            Seasons.Event.DECEMBER_SOLSTICE -> if (north) "❄️" else "☀️"
-        }
-    }
 }

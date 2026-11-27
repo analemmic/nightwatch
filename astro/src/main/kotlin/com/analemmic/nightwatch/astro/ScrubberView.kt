@@ -66,6 +66,8 @@ class ScrubberView(context: Context) : View(context) {
     private val text = Paint(Paint.ANTI_ALIAS_FLAG).apply { typeface = font; textAlign = Paint.Align.CENTER }
     /** The small time labels are ExtraLight (gen_face FONT_LABEL): thin read too faint at that size. */
     private val labelText = Paint(text).apply { typeface = context.resources.getFont(R.font.jetbrains_mono_extralight) }
+    /** Equinox/solstice signs (gen_face FONT_SYMBOLS: a Noto Sans Symbols subset; plain text glyphs, never emoji). */
+    private val signText = Paint(text).apply { typeface = context.resources.getFont(R.font.noto_sans_symbols_seasons) }
     private val sprite = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
     private val moonSprites = arrayOfNulls<Bitmap>(FaceSpec.MOON_SPRITES.size)
     // Owner 2026-11-24: the user's date order (same source as the face's date), not a locale list.
@@ -169,6 +171,7 @@ class ScrubberView(context: Context) : View(context) {
         val n = s?.nautical
         for (i in 0 until 24) {
             if (i == (FaceSpec.PI_TICK + 12) % 24 && isPiDay()) continue // tick i sits at hour 12 + i; piDay draws a pi here
+            if (s != null && i == seasonTick(s)) continue // season draws the equinox/solstice sign here
             val t = 15f * i
             val inside = n != null && present(n.start) && present(n.end) &&
                 (((t - n.start) % 360f + 360f) % 360f) <= n.end - n.start
@@ -184,10 +187,15 @@ class ScrubberView(context: Context) : View(context) {
     /** Pi Day (03.14, gen_face pi_day): a tiny amber pi in place of the 02:00 tick, an amber line at 01:59. */
     private fun piDay(canvas: Canvas) {
         if (!isPiDay()) return
-        radial(canvas, 15f * (FaceSpec.PI_LINE_HOURS - 12f), 0f, FaceSpec.PI_LINE_R * RF, FaceSpec.AMBER, 3f)
-        val th = Math.toRadians(15.0 * (FaceSpec.PI_TICK - 12))
-        val r = FaceSpec.PI_R * RF
-        centered(canvas, "\u03c0", C + r * sin(th).toFloat(), C - r * cos(th).toFloat(), FaceSpec.PI_SIZE, FaceSpec.AMBER, labelText)
+        radial(canvas, 15f * (FaceSpec.PI_LINE_HOURS - 12f), 0f, FaceSpec.EGG_LINE_R * RF, FaceSpec.AMBER, 3f)
+        rimSymbol(canvas, 15f * (FaceSpec.PI_LINE_HOURS - 12f), "\u03c0", FaceSpec.PI_SIZE, labelText) // caps the line
+    }
+
+    /** An easter-egg symbol, upright, on the rim at [angle], capping its amber line (gen_face EGG_R). */
+    private fun rimSymbol(canvas: Canvas, angle: Float, glyph: String, size: Float, paint: Paint) {
+        val th = Math.toRadians(angle.toDouble())
+        val r = FaceSpec.EGG_R * RF
+        centered(canvas, glyph, C + r * sin(th).toFloat(), C - r * cos(th).toFloat(), size, FaceSpec.AMBER, paint)
     }
 
     private fun noonLine(canvas: Canvas, s: Snapshot) {
@@ -210,18 +218,23 @@ class ScrubberView(context: Context) : View(context) {
     private fun sunRise(s: Snapshot) = s.sun.start.takeIf { present(it) && s.sun.startReal }
     private fun sunSet(s: Snapshot) = s.sun.end.takeIf { present(it) && s.sun.endReal }
 
+    /** Index (0-23, tick i at 15 i degrees) of the hour tick nearest today's equinox/solstice, or -1 (gen_face season_tick). */
+    private fun seasonTick(s: Snapshot): Int =
+        if (present(s.season)) ((Math.round(s.season / 15f) % 24) + 24) % 24 else -1
+
+    /** Equinox/solstice (gen_face season_marker): amber line at the moment, capped by the event's sign; the nearest
+     *  tick is skipped in [ticks]. */
     private fun season(canvas: Canvas, s: Snapshot) {
-        if (present(s.season)) radial(canvas, s.season, 0f, RF, FaceSpec.AMBER, 3f)
+        if (!present(s.season)) return
+        radial(canvas, s.season, 0f, FaceSpec.EGG_LINE_R * RF, FaceSpec.AMBER, 3f)
+        val glyph = Seasons.Event.inMonth(date.monthValue)?.sign ?: return
+        rimSymbol(canvas, s.season, glyph, FaceSpec.SEASON_SIZE, signText)
     }
 
-    /** True when the equinox/solstice line is close enough to this sun line that their labels would overlap. */
-    private fun clash(s: Snapshot, line: Float) = present(s.season) && abs(wrap180(s.season - line)) < FaceSpec.SEASON_CLASH_DEG
-
-    /** Sunrise/sunset (and equinox/solstice) times inside the disc; a sun label too close to the season's yields. */
+    /** Sunrise/sunset times inside the disc. */
     private fun timeLabels(canvas: Canvas, s: Snapshot) {
-        if (present(s.season)) label(canvas, s.season, FaceSpec.AMBER) // amber like its line
-        sunSet(s)?.let { if (!clash(s, it)) label(canvas, it) }
-        sunRise(s)?.let { if (!clash(s, it)) label(canvas, it) }
+        sunSet(s)?.let { label(canvas, it) }
+        sunRise(s)?.let { label(canvas, it) }
     }
 
     /** HHMM inside the disc on the line's axis at [angle], reading left-to-right on both halves (gen_face time_label). */
