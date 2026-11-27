@@ -178,7 +178,8 @@ class ScrubberView(context: Context) : View(context) {
         }
     }
 
-    private fun isPiDay() = date.monthValue == 3 && date.dayOfMonth == 14
+    /** March 14, only where dates read MM.DD (as 14.03 it isn't pi). */
+    private fun isPiDay() = usOrder && date.monthValue == 3 && date.dayOfMonth == 14
 
     /** Pi Day (03.14, gen_face pi_day): a tiny amber pi in place of the 02:00 tick, an amber line at 01:59. */
     private fun piDay(canvas: Canvas) {

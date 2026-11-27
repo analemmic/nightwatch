@@ -250,11 +250,11 @@
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_14" angle="210">
-      <Transform target="alpha" value="((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#82140c" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_14_blk" angle="210">
-      <Transform target="alpha" value="((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_15" angle="225">
@@ -463,7 +463,7 @@
 
     <!-- Pi Day (03.14): pi at 02:00, line at 01:59. -->
     <Group name="pi_day" x="0" y="0" width="450" height="450">
-      <Transform target="alpha" value="((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) ? 255 : 0" />
+      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 255 : 0" />
       <Variant mode="AMBIENT" target="alpha" value="0" />
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="line_pi" alpha="255" angle="-150.25">
       <Line startX="225" startY="225" endX="225" endY="33.75"><Stroke color="#ff9f0a" thickness="3" cap="BUTT" /></Line>
@@ -963,11 +963,11 @@
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_14" angle="210">
-      <Transform target="alpha" value="((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
+      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 0 : 255)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#7c8594" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_14_blk" angle="210">
-      <Transform target="alpha" value="((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
+      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 0 : (((([REFERENCE.sunNauticalDawn] &lt; -500) || ([REFERENCE.sunNauticalDusk] &lt; -500)) ? 0 : ((((210 - [REFERENCE.sunNauticalDawn]) % 360 + 360) % 360 &lt;= [REFERENCE.sunNauticalDusk] - [REFERENCE.sunNauticalDawn]) ? 1 : 0)) &gt; 0.5 ? 255 : 0)" />
       <Line startX="225" startY="0" endX="225" endY="10.125"><Stroke color="#000000" thickness="4" cap="BUTT" /></Line>
     </PartDraw>
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="tick_15" angle="225">
@@ -1197,7 +1197,7 @@
 
     <!-- Pi Day (03.14): pi at 02:00, line at 01:59. -->
     <Group name="pi_day" x="0" y="0" width="450" height="450">
-      <Transform target="alpha" value="((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) ? 255 : 0" />
+      <Transform target="alpha" value="((((([MONTH] == 3) &amp;&amp; ([DAY] == 14))) &amp;&amp; ((([REFERENCE.dateDayFirst] &gt; -0.5) ? ([REFERENCE.dateDayFirst] &lt; 0.5) : ([LANGUAGE_LOCALE_NAME] == &quot;en_US&quot;))))) ? 255 : 0" />
       <Variant mode="AMBIENT" target="alpha" value="0" />
     <PartDraw x="0" y="0" width="450" height="450" pivotX="0.5" pivotY="0.5" name="line_pi" alpha="255" angle="-150.25">
       <Line startX="225" startY="225" endX="225" endY="33.75"><Stroke color="#ff9f0a" thickness="3" cap="BUTT" /></Line>

@@ -63,6 +63,7 @@ WHITE = "#ffffff"
 AMBER = "#ff9f0a"        # equinox/solstice line, both palettes
 # Pi Day easter egg (03.14, local date; owner 2026-11-27): the 02:00 tick becomes a tiny amber pi and an amber line
 # marks 01:59 (24-hour clock, committed to the bit). No time label: it would sit against the big digits.
+# Only where the date reads MM.DD (03.14): as 14.03 it isn't pi. pi_day_expr() adds that condition.
 PI_DAY = "1" if os.environ.get("NW_FORCE_PI_DAY") == "1" else "(([MONTH] == 3) && ([DAY] == 14))"
 PI_TICK = 2                     # the hour whose tick the pi replaces
 PI_LINE_HOURS = 1 + 59 / 60     # 01:59
@@ -361,7 +362,7 @@ def ticks(p):
     for i in range(24):
         t = 15 * i
         inside = f"(({dawn} < -500) || ({dusk} < -500)) ? 0 : (((({t} - {dawn}) % 360 + 360) % 360 <= {dusk} - {dawn}) ? 1 : 0)"
-        pi = f"({PI_DAY}) ? 0 : " if i == (PI_TICK - 12) % 24 else ""   # Pi Day: the pi takes this tick's place (tick i = hour 12 + i)
+        pi = f"({pi_day_expr()}) ? 0 : " if i == (PI_TICK - 12) % 24 else ""   # Pi Day: the pi takes this tick's place (tick i = hour 12 + i)
         for name, color, alpha in [(f"tick_{i:02d}", None, f"{pi}(({inside}) > 0.5 ? 0 : 255)"),
                                    (f"tick_{i:02d}_blk", "#000000", f"{pi}(({inside}) > 0.5 ? 255 : 0)")]:
             line = tick(i, color or p.on["tick_major"], color or p.on["tick_minor"])
@@ -425,6 +426,11 @@ def season_marker(p):
                                              alpha_expr=shown(["seasonEvent"])), variant=ambient(0)))
 
 
+def pi_day_expr():
+    """Pi Day: March 14 local date, and the user's date order is MM.DD."""
+    return f"(({PI_DAY}) && ({month_first_expr()}))"
+
+
 def pi_day(p):
     """Pi Day (03.14): a tiny amber pi in place of the 02:00 tick and an amber line at 01:59, like the
     equinox/solstice line but stopping short of the pi; no time label. Interactive only."""
@@ -436,7 +442,7 @@ def pi_day(p):
                                              static_angle=15 * (PI_LINE_HOURS - 12)) + "\n"
                     + text_part("pi", x - box / 2, y - box / 2, box, box, PI_SIZE, AMBER, [], template="\u03c0",
                                 font=FONT_LABEL),
-                    alpha_expr=f"({PI_DAY}) ? 255 : 0", variant=ambient(0)))
+                    alpha_expr=f"({pi_day_expr()}) ? 255 : 0", variant=ambient(0)))
 
 
 def sun_labels(p):
@@ -571,13 +577,18 @@ def curved_text(name, size, color, exprs, template, font=FONT_LABEL):
             f'        </TextCircular>\n      </PartText>')
 
 
+def month_first_expr():
+    """True when the user's date order is MM.DD (from the companion; before data arrives, en_US -> MM.DD)."""
+    d = ref("dateDayFirst")
+    return f'(({d} > -0.5) ? ({d} < 0.5) : ([LANGUAGE_LOCALE_NAME] == "en_US"))'
+
+
 def date_text(p):
     """MM.DD or DD.MM by the user's date order (from the companion); before data arrives, en_US -> MM.DD."""
     def make(color, sfx):
         us = curved_text(f"date_us{sfx}", DATE_SIZE, color, ["[MONTH_Z]", "[DAY_Z]"], "%s.%s")
         other = curved_text(f"date_intl{sfx}", DATE_SIZE, color, ["[DAY_Z]", "[MONTH_Z]"], "%s.%s")
-        d = ref("dateDayFirst")
-        month_first = f'(({d} > -0.5) ? ({d} < 0.5) : ([LANGUAGE_LOCALE_NAME] == "en_US"))'
+        month_first = month_first_expr()
         return (f'    <Group name="date{sfx}" x="0" y="0" width="{W}" height="{W}">\n'
                 "      <Condition>\n        <Expressions>\n"
                 f'          <Expression name="monthFirst"><![CDATA[{month_first}]]></Expression>\n'
