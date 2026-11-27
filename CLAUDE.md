@@ -15,8 +15,8 @@ The face is feature-complete; new detail goes in the day table.
   - `Sources.kt` 7 complication sources + snapshot cache; `SlotCodec.kt` wire format.
   - `Sky.kt` location/time (or debug simulation), gauge choice; `TzCentres.kt` time-zone backup location
     (`tools/build_tz.py` -> `res/raw/tz_centres.txt`).
-  - `ScrubberActivity`/`ScrubberView` day scrubber; `TableActivity`/`DayTable` day table; `SetupActivity` permission,
-    disclaimer, licenses; `BootReceiver` refresh on boot/update/locale/time zone; `Palettes.kt` palette setting.
+  - `ScrubberActivity`/`ScrubberView` day scrubber; `TableActivity`/`DayTable` day table; `SetupActivity` location
+    disclosure + permission, Continue/Done back to its opener, Location settings, licenses; `BootReceiver` refresh on boot/update/locale/time zone; `Palettes.kt` palette setting.
   - Tests: `./gradlew :astro:testDebugUnitTest` (reference implementations in `src/test/.../Reference.kt`).
 - `docs/`: website (GitHub Pages, main /docs, https://analemmic.com/nightwatch/). `privacy.html` mirrors PRIVACY.md;
   `license.html` mirrors licenses/NOTICE.txt. Screenshots use a simulated location (never the owner's) with the
@@ -76,5 +76,7 @@ Angles are clock positions: local time T sits at 15 * (T - 12) degrees, noon at 
   zone with `adb shell service call alarm 3 s16 <Zone>`; restore it and clear the simulation afterwards.
 - Logs: `adb logcat | grep -E "NightwatchAstro|DWF"`. Screenshot: `adb exec-out screencap -p > shot.png`. Use
   KEYCODE_BACK (HOME toggles the launcher). Buzz the owner: `adb shell cmd vibrator_manager synced oneshot 300`.
-- Git: repo config commits as Analemmic with the GitHub noreply address. Push only `main`.
+- Git: repo config commits as Analemmic with the GitHub noreply address. Push only `main`, and `main` = what's on
+  Play (GitHub must match what Play reviews). Unreleased work goes on the local branch `next`; merge it into `main`
+  and push only together with a new Play upload. Local tags mark uploaded code (`play-internal-1`).
 - Verify visual changes on the watch with screenshots; never present guessed numbers as computed.
