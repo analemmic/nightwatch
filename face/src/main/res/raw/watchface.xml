@@ -758,7 +758,7 @@
         </Expressions>
         <Compare expression="monthFirst">
       <PartText x="0" y="0" width="450" height="450" name="date_us">
-        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE" verticalAlign="CENTER">
+        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE">
           <Font family="jetbrains_mono_extralight" size="24" color="#ff5038">
             <Template>%s.%s<Parameter expression="[MONTH_Z]" /><Parameter expression="[DAY_Z]" /></Template>
           </Font>
@@ -767,7 +767,7 @@
         </Compare>
         <Default>
       <PartText x="0" y="0" width="450" height="450" name="date_intl">
-        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE" verticalAlign="CENTER">
+        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE">
           <Font family="jetbrains_mono_extralight" size="24" color="#ff5038">
             <Template>%s.%s<Parameter expression="[DAY_Z]" /><Parameter expression="[MONTH_Z]" /></Template>
           </Font>
@@ -1568,7 +1568,7 @@
         </Expressions>
         <Compare expression="monthFirst">
       <PartText x="0" y="0" width="450" height="450" name="date_us">
-        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE" verticalAlign="CENTER">
+        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE">
           <Font family="jetbrains_mono_extralight" size="24" color="#aeb7c4">
             <Template>%s.%s<Parameter expression="[MONTH_Z]" /><Parameter expression="[DAY_Z]" /></Template>
           </Font>
@@ -1577,7 +1577,7 @@
         </Compare>
         <Default>
       <PartText x="0" y="0" width="450" height="450" name="date_intl">
-        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE" verticalAlign="CENTER">
+        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE">
           <Font family="jetbrains_mono_extralight" size="24" color="#aeb7c4">
             <Template>%s.%s<Parameter expression="[DAY_Z]" /><Parameter expression="[MONTH_Z]" /></Template>
           </Font>
@@ -1596,7 +1596,7 @@
         </Expressions>
         <Compare expression="monthFirst">
       <PartText x="0" y="0" width="450" height="450" name="date_us_a">
-        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE" verticalAlign="CENTER">
+        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE">
           <Font family="jetbrains_mono_extralight" size="24" color="#88909a">
             <Template>%s.%s<Parameter expression="[MONTH_Z]" /><Parameter expression="[DAY_Z]" /></Template>
           </Font>
@@ -1605,7 +1605,7 @@
         </Compare>
         <Default>
       <PartText x="0" y="0" width="450" height="450" name="date_intl_a">
-        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE" verticalAlign="CENTER">
+        <TextCircular centerX="225" centerY="225" width="369" height="369" startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE">
           <Font family="jetbrains_mono_extralight" size="24" color="#88909a">
             <Template>%s.%s<Parameter expression="[DAY_Z]" /><Parameter expression="[MONTH_Z]" /></Template>
           </Font>

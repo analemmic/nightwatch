@@ -23,6 +23,11 @@ class GeneratedFace(unittest.TestCase):
         cls.xml = g.watchface_xml()
         cls.root = ET.fromstring(cls.xml)
 
+    def test_stays_within_format_version_4(self):
+        # Play rejects v5-only features unless the manifest declares v5 (which would drop older Wear OS 6 watches).
+        for v5 in ("verticalAlign", "lineSpacing", "minSize", "isAutoSize", 'join="', "blendMode"):
+            self.assertNotIn(v5, self.xml, f"{v5} needs WFF v5")
+
     def test_at_most_eight_slots_with_unique_ids(self):
         ids = [s.get("slotId") for s in self.root.iter("ComplicationSlot")]
         self.assertLessEqual(len(ids), 8)

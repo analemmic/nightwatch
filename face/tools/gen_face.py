@@ -542,7 +542,7 @@ def curved_text(name, size, color, exprs, template, font=FONT_LABEL):
     params = "".join(f'<Parameter expression="{a(e)}" />' for e in exprs)
     return (f'      <PartText x="0" y="0" width="{W}" height="{W}" name="{name}">\n'
             f'        <TextCircular centerX="{f(C)}" centerY="{f(C)}" width="{f(2 * DATE_R)}" height="{f(2 * DATE_R)}" '
-            f'startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE" verticalAlign="CENTER">\n'
+            f'startAngle="-60" endAngle="60" align="CENTER" direction="CLOCKWISE">\n'
             f'          <Font family="{font}" size="{f(size)}" color="{color}">\n'
             f'            <Template>{template}{params}</Template>\n          </Font>\n'
             f'        </TextCircular>\n      </PartText>')
