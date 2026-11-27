@@ -19,6 +19,7 @@ import com.analemmic.nightwatch.astro.FaceSpec.C
 import com.analemmic.nightwatch.astro.FaceSpec.R as RF
 import java.time.LocalDate
 import kotlin.math.abs
+import kotlin.math.cos
 import kotlin.math.floor
 import kotlin.math.hypot
 import kotlin.math.roundToInt
@@ -127,6 +128,7 @@ class ScrubberView(context: Context) : View(context) {
             noonLine(canvas, s)
             whiskers(canvas, s)
             season(canvas, s)
+            piDay(canvas)
         } ?: ticks(canvas, null)
         centerDisc(canvas)
         snapshot?.let { s ->
@@ -166,6 +168,7 @@ class ScrubberView(context: Context) : View(context) {
     private fun ticks(canvas: Canvas, s: Snapshot?) {
         val n = s?.nautical
         for (i in 0 until 24) {
+            if (i == (FaceSpec.PI_TICK + 12) % 24 && isPiDay()) continue // tick i sits at hour 12 + i; piDay draws a pi here
             val t = 15f * i
             val inside = n != null && present(n.start) && present(n.end) &&
                 (((t - n.start) % 360f + 360f) % 360f) <= n.end - n.start
@@ -173,6 +176,17 @@ class ScrubberView(context: Context) : View(context) {
             val color = if (inside) Color.BLACK else if (major) p.tickMajor else p.tickMinor
             if (major) radial(canvas, t, RF, FaceSpec.TICK_MAJOR_R * RF, color, 7f) else radial(canvas, t, RF, FaceSpec.TICK_MINOR_R * RF, color, 4f)
         }
+    }
+
+    private fun isPiDay() = date.monthValue == 3 && date.dayOfMonth == 14
+
+    /** Pi Day (03.14, gen_face pi_day): a tiny amber pi in place of the 02:00 tick, an amber line at 01:59. */
+    private fun piDay(canvas: Canvas) {
+        if (!isPiDay()) return
+        radial(canvas, 15f * (FaceSpec.PI_LINE_HOURS - 12f), 0f, FaceSpec.PI_LINE_R * RF, FaceSpec.AMBER, 3f)
+        val th = Math.toRadians(15.0 * (FaceSpec.PI_TICK - 12))
+        val r = FaceSpec.PI_R * RF
+        centered(canvas, "\u03c0", C + r * sin(th).toFloat(), C - r * cos(th).toFloat(), FaceSpec.PI_SIZE, FaceSpec.AMBER, labelText)
     }
 
     private fun noonLine(canvas: Canvas, s: Snapshot) {

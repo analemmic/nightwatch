@@ -9,6 +9,7 @@ each into WFF <Reference>s once; every element reads [REFERENCE.<name>]. The wir
 companion through the generated FaceSpec.kt, so encoder and decoder can't drift.
 """
 import math
+import os
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -60,6 +61,13 @@ NIGHT_NOON = "#9d150d"   # RED at 0.8: one step up from RED_DIM, still below the
 NIGHT_DATE = "#ff5038"   # night date on the rim: full red was still faint there (esp. ambient), so a touch warmer
 WHITE = "#ffffff"
 AMBER = "#ff9f0a"        # equinox/solstice line, both palettes
+# Pi Day easter egg (03.14, local date; owner 2026-11-27): the 02:00 tick becomes a tiny amber pi and an amber line
+# marks 01:59 (24-hour clock, committed to the bit). No time label: it would sit against the big digits.
+PI_DAY = "1" if os.environ.get("NW_FORCE_PI_DAY") == "1" else "(([MONTH] == 3) && ([DAY] == 14))"
+PI_TICK = 2                     # the hour whose tick the pi replaces
+PI_LINE_HOURS = 1 + 59 / 60     # 01:59
+PI_R, PI_SIZE = 0.93, 24        # pi glyph center radius (x R) and font size: on the tick's spot
+PI_LINE_R = 0.85                # the line stops short of the pi (01:59 is only 0.25 deg from 02:00)
 OFF_WHITE = "#d9cfc4"    # day ambient hands and moon sprite
 NIGHT_INK = "#7d7873"    # muted warm gray: the night palette's hands, moon sprite and scrubber date
 
@@ -353,8 +361,9 @@ def ticks(p):
     for i in range(24):
         t = 15 * i
         inside = f"(({dawn} < -500) || ({dusk} < -500)) ? 0 : (((({t} - {dawn}) % 360 + 360) % 360 <= {dusk} - {dawn}) ? 1 : 0)"
-        for name, color, alpha in [(f"tick_{i:02d}", None, f"({inside}) > 0.5 ? 0 : 255"),
-                                   (f"tick_{i:02d}_blk", "#000000", f"({inside}) > 0.5 ? 255 : 0")]:
+        pi = f"({PI_DAY}) ? 0 : " if i == (PI_TICK - 12) % 24 else ""   # Pi Day: the pi takes this tick's place (tick i = hour 12 + i)
+        for name, color, alpha in [(f"tick_{i:02d}", None, f"{pi}(({inside}) > 0.5 ? 0 : 255)"),
+                                   (f"tick_{i:02d}_blk", "#000000", f"{pi}(({inside}) > 0.5 ? 255 : 0)")]:
             line = tick(i, color or p.on["tick_major"], color or p.on["tick_minor"])
             on.append(f'    <PartDraw x="0" y="0" width="{W}" height="{W}" pivotX="0.5" pivotY="0.5" name="{name}" '
                       f'angle="{t}">\n      <Transform target="alpha" value="{a(alpha)}" />\n      {line}\n    </PartDraw>')
@@ -414,6 +423,20 @@ def season_marker(p):
     return ("    <!-- Equinox/solstice (only on that day). -->\n"
             + group("season", full_part_draw("line_season", radial_line(0, R, AMBER, 3), angle_expr=th,
                                              alpha_expr=shown(["seasonEvent"])), variant=ambient(0)))
+
+
+def pi_day(p):
+    """Pi Day (03.14): a tiny amber pi in place of the 02:00 tick and an amber line at 01:59, like the
+    equinox/solstice line but stopping short of the pi; no time label. Interactive only."""
+    th = 15 * (PI_TICK - 12)
+    x, y = C + PI_R * R * math.sin(math.radians(th)), C - PI_R * R * math.cos(math.radians(th))
+    box = PI_SIZE + 4
+    return ("    <!-- Pi Day (03.14): pi at 02:00, line at 01:59. -->\n"
+            + group("pi_day", full_part_draw("line_pi", radial_line(0, PI_LINE_R * R, AMBER, 3),
+                                             static_angle=15 * (PI_LINE_HOURS - 12)) + "\n"
+                    + text_part("pi", x - box / 2, y - box / 2, box, box, PI_SIZE, AMBER, [], template="\u03c0",
+                                font=FONT_LABEL),
+                    alpha_expr=f"({PI_DAY}) ? 255 : 0", variant=ambient(0)))
 
 
 def sun_labels(p):
@@ -608,7 +631,7 @@ def palette_layers(segments):
 def watchface_xml():
     body = "\n\n".join([
         data_block(),
-        palette_layers([("sky", [sky_fills, ticks, noon_line, whiskers, season_marker]),
+        palette_layers([("sky", [sky_fills, ticks, noon_line, whiskers, season_marker, pi_day]),
                         ("hands", [hands]),
                         ("ring", [center_disc, moon_ring, tide_marks, sun_labels]),
                         ("moon", [moon_marker]),
@@ -705,6 +728,12 @@ object FaceSpec {{
     /** Time labels sit inside the disc, centered at this radius on their line's axis. */
     const val LABEL_R = {f(LABEL_R)}f
     const val SEASON_CLASH_DEG = {f(SEASON_CLASH_DEG)}f
+    /** Pi Day (03.14) easter egg: pi in place of the PI_TICK tick, amber line at PI_LINE_HOURS. */
+    const val PI_TICK = {PI_TICK}
+    const val PI_LINE_HOURS = {f(PI_LINE_HOURS)}f
+    const val PI_R = {f(PI_R)}f
+    const val PI_SIZE = {f(PI_SIZE)}f
+    const val PI_LINE_R = {f(PI_LINE_R)}f
     const val TIDE_DOT_R = {f(TIDE_DOT_R)}f
     const val TIDE_OFF = {f(TIDE_OFF)}f
     const val MOON_R = {f(MOON_R)}f

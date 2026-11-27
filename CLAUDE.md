@@ -54,6 +54,9 @@ Angles are clock positions: local time T sits at 15 * (T - 12) degrees, noon at 
   the curved date at 12, 24 ticks, center disc with HH over MM, moon arc with phase sprite at transit, tide dots,
   24-hour hour hand and a minute hand.
 - Fonts: JetBrains Mono Thin; ExtraLight for time labels and the date; Regular for NO DATA.
+- Easter eggs (never mention them publicly): equinox/solstice amber line + label; Pi Day (03.14, local date) a tiny
+  amber pi replaces the 02:00 tick and an amber line marks 01:59 (no label). Preview Pi Day: `NW_FORCE_PI_DAY=1 python3
+  face/tools/gen_face.py` (test builds only; regenerate without it before committing).
 - Corner cases: each twilight level independent; the night is the noon-to-noon window; a missing moonrise/set is
   taken from up to 3 days back. Known, accepted: at high latitudes or on an equinox/solstice near noon or midnight, a
   label can touch the big digits.
