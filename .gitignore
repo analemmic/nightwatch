@@ -12,3 +12,7 @@ keystore.properties
 
 # Python
 __pycache__/
+
+# Large media (demo videos): keep local, never commit
+*.mp4
+*.mov
