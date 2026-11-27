@@ -7,12 +7,15 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
+import android.window.OnBackInvokedCallback
+import android.window.OnBackInvokedDispatcher
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
@@ -34,6 +37,7 @@ import kotlinx.coroutines.launch
 class SetupActivity : Activity() {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
     private lateinit var column: LinearLayout
+    private lateinit var scroll: ScrollView
     private var showingLicenses = false
     private val firstRun by lazy { intent.getBooleanExtra(EXTRA_FIRST_RUN, false) }
 
@@ -45,11 +49,13 @@ class SetupActivity : Activity() {
             val side = dp(22); val top = dp(30)
             setPadding(side, top, side, top)
         }
-        setContentView(ScrollView(this).apply {
+        scroll = ScrollView(this).apply {
             setBackgroundColor(Color.BLACK)
             isVerticalScrollBarEnabled = false
+            isFocusableInTouchMode = true
             addView(column)
-        })
+        }
+        setContentView(scroll)
     }
 
     override fun onResume() {
@@ -63,9 +69,24 @@ class SetupActivity : Activity() {
         super.onDestroy()
     }
 
-    @Deprecated("Activity back handling")
+    /** Back (or swipe) on the licenses page returns to setup instead of closing it. Wear OS uses predictive back
+     *  (API 33+), which never calls onBackPressed, so this registers a callback only while licenses are shown. */
+    private val backFromLicenses = object : OnBackInvokedCallback { override fun onBackInvoked() = showLicenses(false) }
+
+    @Deprecated("Activity back handling (API < 33)")
     override fun onBackPressed() {
-        if (showingLicenses) { showingLicenses = false; render() } else @Suppress("DEPRECATION") super.onBackPressed()
+        if (showingLicenses) showLicenses(false) else @Suppress("DEPRECATION") super.onBackPressed()
+    }
+
+    private fun showLicenses(on: Boolean) {
+        if (on == showingLicenses) return
+        showingLicenses = on
+        if (Build.VERSION.SDK_INT >= 33) {
+            if (on) onBackInvokedDispatcher.registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, backFromLicenses)
+            else onBackInvokedDispatcher.unregisterOnBackInvokedCallback(backFromLicenses)
+        }
+        render()
+        scroll.scrollTo(0, 0) // each page starts at its top
     }
 
     private fun hasForeground() = granted(Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -87,6 +108,7 @@ class SetupActivity : Activity() {
 
     private fun render() {
         column.removeAllViews()
+        scroll.requestFocus() // the crown scrolls whatever has focus: keep it on the ScrollView (buttons don't take it)
         if (showingLicenses) return renderLicenses()
 
         text(getString(R.string.app_name), 17f, bold = true, color = RED)
@@ -119,7 +141,7 @@ class SetupActivity : Activity() {
 
         text(getString(R.string.setup_face_hint), 12f, color = DIM)
         text(getString(R.string.setup_not_for_navigation), 12f, color = DIM)
-        button(getString(R.string.setup_licenses)) { showingLicenses = true; render() }
+        button(getString(R.string.setup_licenses)) { showLicenses(true) }
         text(getString(R.string.copyright), 11f, color = DIM)
     }
 
@@ -149,7 +171,7 @@ class SetupActivity : Activity() {
 
     private fun renderLicenses() {
         val body = resources.openRawResource(R.raw.licenses).bufferedReader().use { it.readText() }
-        button(getString(R.string.setup_back)) { showingLicenses = false; render() }
+        button(getString(R.string.setup_back)) { showLicenses(false) }
         text(body, 10f, color = DIM, mono = true, center = false)
     }
 
@@ -169,6 +191,7 @@ class SetupActivity : Activity() {
         column.addView(Button(this).apply {
             text = label
             isAllCaps = false
+            isFocusable = false // so rotary input stays with the ScrollView; taps still work
             setOnClickListener(onClick)
         }, LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
             .apply { setMargins(0, dp(6), 0, dp(6)) })
