@@ -30,8 +30,9 @@ Goals, values, and constraints, so changes don't undo something on purpose. The 
   reloads; anything else is treated as absent.
 - **The scrubber redraws the face in Kotlin.** WFF renders only as the watch face, and the face's crown belongs to
   the system. The scrubber mirrors gen_face.py through the generated FaceSpec to stay in step.
-- **Always-on runs on the main CPU.** The low-power offload path rejects WFF layouts on this watch and only supports
-  12-hour hands; the 24-hour hour hand is non-negotiable. Re-test offload after system updates.
+- **Always-on runs on the main CPU.** The low-power chip rejects every WFF layout on this watch's firmware, and WFF
+  can only offload 12-hour hands (the chip supports 24-hour; the runtime doesn't). The 24-hour hour hand is
+  non-negotiable on the interactive face. Re-test after system updates: notes/ambient-offload.md.
 
 ## Design rules
 - **Lines only for sunrise and sunset.** Twilight shows as fills; exact times are in the day table.
