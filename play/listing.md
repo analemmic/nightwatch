@@ -78,3 +78,10 @@ First test release of Nightwatch Companion. It calculates sunrise, sunset, twili
 Open it once to allow location (or it uses your time zone's main city). Times are estimates, not for navigation.
 </en-US>
 ```
+
+### Release notes: version 2 (1.1.0), closed test
+```
+<en-US>
+Clearer setup: the location explanation and the Allow button are on the first screen, with Continue/Done to return and a Location settings link to change or turn off access. The crown now scrolls setup and the licenses.
+</en-US>
+```
