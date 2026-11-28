@@ -64,7 +64,7 @@ text and release notes: `play/listing.md`. Listing art and the background-locati
 
 ## 5. Build the release
 - [x] Upload key: `../nightwatch-upload.jks` (outside the repo) with its password in `keystore.properties`
-      (git-ignored). Back both up to a password manager; never in git or the Drive zip.
+      (git-ignored). Back both up to a password manager; never in git.
 - [ ] Each release: bump `versionCode` (+1) and `versionName` in the changed app's build.gradle.kts;
       `python3 face/tools/gen_face.py`; `./gradlew :astro:testDebugUnitTest`; `python3 face/tools/test_gen_face.py`;
       `./gradlew :face:bundleRelease :astro:bundleRelease` ->
