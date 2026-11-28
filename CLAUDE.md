@@ -85,7 +85,7 @@ Angles are clock positions: local time T sits at 15 * (T - 12) degrees, noon at 
 - Git: repo config commits as Analemmic with the GitHub noreply address. Two public branches: `dev` (the default:
   all work lands here) and `main` (= exactly what's on Play; GitHub must match what Play reviews). Merge `dev` into
   `main` only together with a Play upload, and tag it locally (`play-internal-1`, `play-closed-2`). A pre-push hook
-  allows only these two branches (`private-history` and the old tags carry the real name).
+  allows only these two branches.
 - Emulators for visual work (owner: saves the watch's battery): AVDs `nw41` (408 px, = the owner's 41 mm Pixel
   Watch 3) and `nw45` (456 px, 45 mm), Wear OS 6.0 image (the 7.0 image hangs on this Mac). One at a time; unplug its
   virtual charger (`adb emu power ac off`, `adb shell dumpsys battery unplug`). The physical watch is for hardware-only

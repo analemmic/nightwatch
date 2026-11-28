@@ -44,7 +44,7 @@ text and release notes: `play/listing.md`. Listing art and the background-locati
 - [x] Copyright: `copyright` string (setup screen), LICENSE (MIT), licenses/NOTICE.txt, res/raw/licenses.txt -> `<pen>`.
 - [x] PRIVACY.md contact -> `<email>`.
 - [x] Upload key generated with `-dname "CN=Analemmic"` (2026-11-27).
-- [x] Public git history: one clean first commit as Analemmic; old history only on the local branch `private-history`.
+- [x] Public git history: one clean first commit as Analemmic; the older real-name history was deleted (2026-11-27).
 - [ ] Every upload: grep the bundles for the real name and email:
       `unzip -p astro-release.aab | strings | grep -iE "$REAL_NAME"` (likewise for the face; set REAL_NAME in your
       shell, never in the repo). Done for version 1 (both) and version 2 (companion). The tide data contains a gauge
